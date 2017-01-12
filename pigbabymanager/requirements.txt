@@ -1,0 +1,3 @@
+django1.10.5
+mariadb
+MySQL-python.x86_64
