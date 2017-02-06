@@ -27,6 +27,8 @@ def index(request):
    # return HttpResponse("pigs are here: ....")
     if request.method == 'GET':
         return pig_controller.index(request)
+    if request.method == 'POST':
+        return pig_controller.create(request)
 
 
 @csrf_exempt
@@ -57,4 +59,7 @@ class PigsController(object):
         return response
 
     def create(self, req):
-        pass
+        content = json.dumps({'Pigs': req.body})
+
+        response = HttpResponse(content=content)
+        return response
