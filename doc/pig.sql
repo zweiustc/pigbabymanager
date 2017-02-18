@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2017 at 08:24 AM
+-- Generation Time: Feb 18, 2017 at 04:08 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `pig`
 --
+CREATE DATABASE IF NOT EXISTS `pig` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `pig`;
 
 -- --------------------------------------------------------
 
