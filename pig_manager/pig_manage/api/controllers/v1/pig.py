@@ -8,6 +8,8 @@ from pig_manage.api.controllers import base
 from pig_manage.api.controllers import collection
 from pig_manage.common import exception
 
+from pig_manage import objects
+
 
 #class PigCollection(collection.Collection):
 #
@@ -28,12 +30,18 @@ class PigsController(rest.RestController):
     def __init__(self):
         super(PigsController, self).__init__()
 
+    # disable the useful but fake interface
+    #@expose.expose(wtypes.text)
+    #def get_all(self):
+    #    pig_list = {'pig': 'test'}
+    #    return [pig_list]
 
-    #@expose.expose(PigCollection)
     @expose.expose(wtypes.text)
     def get_all(self):
-        pig_list = {'pig': 'test'}
-        return [pig_list]
+        pigs = objects.Sow().list(
+                pecan.request.context)
+        return pigs
+
 
     def post(self, network):
         pig_list = {'pig': 'test'}
