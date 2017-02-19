@@ -58,6 +58,7 @@ class Connection(api.Connection):
     def get_sow_list(self, context, filters=None, limit=None,
                               marker=None,
                               sort_key=None, sort_dir=None):
+        #import pdb; pdb.set_trace()
         filters = filters or {}
         #deleted = filters.get('deleted', None)
         #if deleted is None:

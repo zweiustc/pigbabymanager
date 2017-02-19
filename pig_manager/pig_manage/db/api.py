@@ -29,4 +29,5 @@ class Connection(object):
 
     @abc.abstractmethod
     def get_sow_list(cls, context, filters=None, limit=None,
-                              marker=None, sort_key=None, sort_dir=None):
+            marker=None, sort_key=None, sort_dir=None):
+        """return all sow record in database."""

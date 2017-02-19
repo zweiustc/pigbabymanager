@@ -49,8 +49,8 @@ class Sow(Base, Pig_manageBase):
     )
 
     id = Column(BigInteger, nullable=False, primary_key=True)
-    ear_tag = column(BigInteger)
-    ear_lack = column(BigInteger)
+    ear_tag = Column(BigInteger)
+    ear_lack = Column(BigInteger)
     birthday = Column(DateTime, nullable=True)
     entryday = Column(DateTime, nullable=True)
 

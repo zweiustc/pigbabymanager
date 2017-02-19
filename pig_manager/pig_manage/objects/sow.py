@@ -2,6 +2,7 @@ from oslo_versionedobjects import  fields
 
 from oslo_log import log
 
+from pig_manage.db import api as dbapi
 from pig_manage.objects import base
 from pig_manage import utils
 from pig_manage import env_config as env_conf
@@ -10,6 +11,9 @@ LOG = log.getLogger(__name__)
 
 @base.ObjectRegistry.register
 class Sow(base.BaseObject):
+
+    VERSION = '1.0'
+    dbapi = dbapi.get_instance()
 
     fields = {
         'id': fields.IntegerField(nullable=False), 
