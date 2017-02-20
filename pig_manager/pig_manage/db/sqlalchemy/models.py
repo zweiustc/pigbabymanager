@@ -43,7 +43,7 @@ Base = declarative_base(cls=Pig_manageBase)
 
 class Sow(Base, Pig_manageBase):
     """Represents sow in pig farm."""
-    __tablename__ = 'Sow'
+    __tablename__ = 'sow'
     __table_args__ = (
         Index('Sow_id_idx', 'id'),
     )

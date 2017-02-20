@@ -125,18 +125,22 @@ CREATE TABLE `source` (
 
 CREATE TABLE `sow` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `ear_tag` int(11) NOT NULL COMMENT '耳标',
-  `ear_lack` int(11) NOT NULL COMMENT '耳缺',
-  `birthday` date NOT NULL,
-  `entryday` date NOT NULL,
-  `dormitory_id` int(11) NOT NULL,
-  `category_id` tinyint(4) NOT NULL,
-  `gestational_age` tinyint(4) NOT NULL COMMENT '胎龄',
-  `accum_return` tinyint(4) NOT NULL COMMENT '累积返情次数',
-  `state_id` tinyint(4) NOT NULL COMMENT '状态',
-  `state_day` tinyint(4) NOT NULL COMMENT '状态天数',
-  `source_id` tinyint(4) NOT NULL COMMENT '来源',
-  `note` varchar(4) NOT NULL COMMENT '备注'
+  `ear_tag` int(11) COMMENT '耳标',
+  `ear_lack` int(11) COMMENT '耳缺',
+  `created_at` date,
+  `updated_at` date,
+  `deleted_at` date,
+  `deleted` int(11),
+  `birthday` date,
+  `entryday` date,
+  `dormitory_id` int(11),
+  `category_id` tinyint(4),
+  `gestational_age` tinyint(4) COMMENT '胎龄',
+  `accum_return` tinyint(4) COMMENT '累积返情次数',
+  `state_id` tinyint(4) COMMENT '状态',
+  `state_day` tinyint(4) COMMENT '状态天数',
+  `source_id` tinyint(4) COMMENT '来源',
+  `note` varchar(255) COMMENT '备注'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
