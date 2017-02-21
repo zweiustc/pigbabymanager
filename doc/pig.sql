@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2017 at 04:08 PM
+-- Generation Time: Feb 21, 2017 at 05:30 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -30,16 +30,20 @@ USE `pig`;
 
 CREATE TABLE `boar` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `ear_tag` int(11) NOT NULL COMMENT '耳标',
-  `ear_lack` int(11) NOT NULL COMMENT '耳缺',
-  `birthday` date NOT NULL,
-  `entryday` date NOT NULL,
-  `dormitory` int(11) NOT NULL,
-  `category` tinyint(4) NOT NULL,
-  `breed_num` tinyint(4) NOT NULL COMMENT '配种次数',
-  `breed_acceptability` float NOT NULL COMMENT '配种合格率',
-  `source_id` tinyint(4) NOT NULL COMMENT '来源',
-  `note` varchar(4) NOT NULL COMMENT '备注'
+  `ear_tag` int(11) UNSIGNED DEFAULT NULL COMMENT '耳标',
+  `ear_lack` int(11) UNSIGNED DEFAULT NULL COMMENT '耳缺',
+  `birthday` date DEFAULT NULL,
+  `entryday` date DEFAULT NULL,
+  `dormitory` int(11) UNSIGNED DEFAULT NULL,
+  `category` int(11) UNSIGNED DEFAULT NULL,
+  `breed_num` int(11) UNSIGNED DEFAULT NULL COMMENT '配种次数',
+  `breed_acceptability` float DEFAULT NULL COMMENT '配种合格率',
+  `source_id` int(11) UNSIGNED DEFAULT NULL COMMENT '来源',
+  `note` varchar(255) DEFAULT NULL COMMENT '备注',
+  `created_at` date DEFAULT NULL,
+  `updated_at` date DEFAULT NULL,
+  `deleted_at` date DEFAULT NULL,
+  `deleted` bigint(20) UNSIGNED DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -50,10 +54,14 @@ CREATE TABLE `boar` (
 
 CREATE TABLE `breed_record` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `sow_id` bigint(20) NOT NULL COMMENT '母猪id',
-  `boar_id` bigint(20) NOT NULL COMMENT '公猪id',
+  `sow_id` bigint(20) UNSIGNED NOT NULL COMMENT '母猪id',
+  `boar_id` bigint(20) UNSIGNED NOT NULL COMMENT '公猪id',
   `date` date NOT NULL,
-  `staff_id` int(11) NOT NULL
+  `staff_id` int(11) UNSIGNED NOT NULL,
+  `created_at` date DEFAULT NULL,
+  `updated_at` date DEFAULT NULL,
+  `deleted_at` date DEFAULT NULL,
+  `deleted` bigint(20) UNSIGNED DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -63,8 +71,12 @@ CREATE TABLE `breed_record` (
 --
 
 CREATE TABLE `category` (
-  `id` tinyint(3) UNSIGNED NOT NULL,
-  `name` varchar(20) NOT NULL
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(36) NOT NULL,
+  `created_at` date DEFAULT NULL,
+  `updated_at` date DEFAULT NULL,
+  `deleted_at` date DEFAULT NULL,
+  `deleted` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -74,8 +86,12 @@ CREATE TABLE `category` (
 --
 
 CREATE TABLE `dormitory` (
-  `id` tinyint(3) UNSIGNED NOT NULL,
-  `name` varchar(20) NOT NULL
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(36) NOT NULL,
+  `created_at` date DEFAULT NULL,
+  `updated_at` date DEFAULT NULL,
+  `deleted_at` date DEFAULT NULL,
+  `deleted` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -86,10 +102,14 @@ CREATE TABLE `dormitory` (
 
 CREATE TABLE `parturition_record` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `sow_id` bigint(20) NOT NULL COMMENT '母猪id',
-  `piglet_num` tinyint(4) NOT NULL COMMENT '仔猪数量',
+  `sow_id` bigint(20) UNSIGNED NOT NULL COMMENT '母猪id',
+  `piglet_num` int(11) UNSIGNED NOT NULL COMMENT '仔猪数量',
   `date` date NOT NULL,
-  `staff_id` int(11) NOT NULL
+  `staff_id` int(11) UNSIGNED NOT NULL,
+  `created_at` date DEFAULT NULL,
+  `updated_at` date DEFAULT NULL,
+  `deleted_at` date DEFAULT NULL,
+  `deleted` bigint(20) UNSIGNED DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -100,10 +120,14 @@ CREATE TABLE `parturition_record` (
 
 CREATE TABLE `return_record` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `sow_id` bigint(20) NOT NULL COMMENT '母猪id',
-  `type` tinyint(4) NOT NULL COMMENT '空留返类型',
+  `sow_id` bigint(20) UNSIGNED NOT NULL COMMENT '母猪id',
+  `type` int(11) UNSIGNED NOT NULL COMMENT '空留返类型',
   `date` date NOT NULL,
-  `staff_id` int(11) NOT NULL
+  `staff_id` int(11) UNSIGNED NOT NULL,
+  `created_at` date DEFAULT NULL,
+  `updated_at` date DEFAULT NULL,
+  `deleted_at` date DEFAULT NULL,
+  `deleted` int(20) UNSIGNED DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -113,8 +137,12 @@ CREATE TABLE `return_record` (
 --
 
 CREATE TABLE `source` (
-  `id` tinyint(3) UNSIGNED NOT NULL,
-  `name` varchar(20) NOT NULL
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(36) NOT NULL,
+  `created_at` date DEFAULT NULL,
+  `updated_at` date DEFAULT NULL,
+  `deleted_at` date DEFAULT NULL,
+  `deleted` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -125,18 +153,22 @@ CREATE TABLE `source` (
 
 CREATE TABLE `sow` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `ear_tag` int(11) NOT NULL COMMENT '耳标',
-  `ear_lack` int(11) NOT NULL COMMENT '耳缺',
-  `birthday` date NOT NULL,
-  `entryday` date NOT NULL,
-  `dormitory_id` int(11) NOT NULL,
-  `category_id` tinyint(4) NOT NULL,
-  `gestational_age` tinyint(4) NOT NULL COMMENT '胎龄',
-  `accum_return` tinyint(4) NOT NULL COMMENT '累积返情次数',
-  `state_id` tinyint(4) NOT NULL COMMENT '状态',
-  `state_day` tinyint(4) NOT NULL COMMENT '状态天数',
-  `source_id` tinyint(4) NOT NULL COMMENT '来源',
-  `note` varchar(4) NOT NULL COMMENT '备注'
+  `ear_tag` int(11) UNSIGNED DEFAULT NULL COMMENT '耳标',
+  `ear_lack` int(11) UNSIGNED DEFAULT NULL COMMENT '耳缺',
+  `birthday` date DEFAULT NULL,
+  `entryday` date DEFAULT NULL,
+  `dormitory_id` int(11) UNSIGNED DEFAULT NULL,
+  `category_id` int(11) UNSIGNED DEFAULT NULL,
+  `gestational_age` int(11) UNSIGNED DEFAULT NULL COMMENT '胎龄',
+  `accum_return` int(11) UNSIGNED DEFAULT NULL COMMENT '累积返情次数',
+  `state_id` int(11) UNSIGNED DEFAULT NULL COMMENT '状态',
+  `state_day` int(11) UNSIGNED DEFAULT NULL COMMENT '状态天数',
+  `source_id` int(11) UNSIGNED DEFAULT NULL COMMENT '来源',
+  `note` varchar(255) DEFAULT NULL COMMENT '备注',
+  `created_at` date DEFAULT NULL,
+  `updated_at` date DEFAULT NULL,
+  `deleted_at` date DEFAULT NULL,
+  `deleted` bigint(20) UNSIGNED DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -146,8 +178,12 @@ CREATE TABLE `sow` (
 --
 
 CREATE TABLE `staff` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(20) NOT NULL
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(36) NOT NULL,
+  `created_at` date DEFAULT NULL,
+  `updated_at` date DEFAULT NULL,
+  `deleted_at` date DEFAULT NULL,
+  `deleted` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -157,8 +193,12 @@ CREATE TABLE `staff` (
 --
 
 CREATE TABLE `state` (
-  `id` tinyint(3) UNSIGNED NOT NULL,
-  `name` varchar(20) NOT NULL
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(36) NOT NULL,
+  `created_at` date DEFAULT NULL,
+  `updated_at` date DEFAULT NULL,
+  `deleted_at` date DEFAULT NULL,
+  `deleted` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -169,10 +209,14 @@ CREATE TABLE `state` (
 
 CREATE TABLE `weaning_record` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `sow_id` bigint(20) NOT NULL COMMENT '母猪id',
+  `sow_id` bigint(20) UNSIGNED NOT NULL COMMENT '母猪id',
   `rate` float NOT NULL COMMENT '断奶合格率',
   `date` date NOT NULL,
-  `staff_id` int(11) NOT NULL
+  `staff_id` int(11) UNSIGNED NOT NULL,
+  `created_at` date DEFAULT NULL,
+  `updated_at` date DEFAULT NULL,
+  `deleted_at` date DEFAULT NULL,
+  `deleted` bigint(20) UNSIGNED DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -263,12 +307,12 @@ ALTER TABLE `breed_record`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `dormitory`
 --
 ALTER TABLE `dormitory`
-  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `parturition_record`
 --
@@ -283,22 +327,22 @@ ALTER TABLE `return_record`
 -- AUTO_INCREMENT for table `source`
 --
 ALTER TABLE `source`
-  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `sow`
 --
 ALTER TABLE `sow`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `state`
 --
 ALTER TABLE `state`
-  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `weaning_record`
 --
