@@ -7,6 +7,8 @@ from pig_manage.api import expose
 from pig_manage.api.controllers import base
 from pig_manage.api.controllers import link
 from pig_manage.api.controllers.v1 import pig
+from pig_manage.api.controllers.v1 import sow
+from pig_manage.api.controllers.v1 import boar
 
 BASE_VERSION = 1
 
@@ -69,6 +71,18 @@ class V1(wtypes.Base):
                                           pecan.request.host_url,
                                           'pigs', '',
                                           bookmark=True)]
+        v1.sows = [link.Link.make_link('self', pecan.request.host_url,
+                                           'sows', ''),
+                      link.Link.make_link('bookmark',
+                                          pecan.request.host_url,
+                                          'sows', '',
+                                          bookmark=True)]
+        v1.boars = [link.Link.make_link('self', pecan.request.host_url,
+                                           'boars', ''),
+                      link.Link.make_link('bookmark',
+                                          pecan.request.host_url,
+                                          'boars', '',
+                                          bookmark=True)]
         #v1.tokens = [link.Link.make_link('self', pecan.request.host_url,
         #                                'tokens', ''),
         #              link.Link.make_link('bookmark',
@@ -83,6 +97,8 @@ class Controller(rest.RestController):
     """Version 1 API controller root."""
 
     pigs = pig.PigsController()
+    sows = sow.SowsController()
+    boars = boar.BoarsController()
     #defaults = default.DefaultController()
     #controllers = controller.ControllersController()
     #computes = compute.ComputesController()
