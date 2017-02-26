@@ -67,3 +67,11 @@ class Connection(api.Connection):
         if filters and isinstance(filters, dict):
             query = query.filter_by(**filters)
         return query.all()
+
+    def get_boar_list(self, context, filters=None, limit=None,
+                              marker=None,
+                              sort_key=None, sort_dir=None):
+        query = model_query(models.Boar)
+        if filters and isinstance(filters, dict):
+            query = query.filter_by(**filters)
+        return query.all()

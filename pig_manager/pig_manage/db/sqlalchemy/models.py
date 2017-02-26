@@ -2,7 +2,7 @@ import json
 
 from oslo_db.sqlalchemy import models
 import six.moves.urllib.parse as urlparse
-from sqlalchemy import (Column, Index, Integer, BigInteger, Enum, String,
+from sqlalchemy import (Column, Index, Integer, BigInteger, Enum, String, Float,
                         schema, Unicode, Text, SmallInteger, Boolean, DateTime)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import orm
@@ -45,7 +45,7 @@ class Sow(Base, Pig_manageBase):
     """Represents sow in pig farm."""
     __tablename__ = 'sow'
     __table_args__ = (
-        Index('Sow_id_idx', 'id'),
+        Index('sow_id_idx', 'id'),
     )
 
     id = Column(BigInteger, nullable=False, primary_key=True)
@@ -60,5 +60,28 @@ class Sow(Base, Pig_manageBase):
     accum_return = Column(Integer)
     state_id = Column(Integer)
     state_day = Column(Integer)
+    source_id = Column(Integer)
+    note = Column(String(255))
+
+
+class Boar(Base, Pig_manageBase):
+    """Represents boar in pig farm."""
+    __tablename__ = 'boar'
+    __table_args__ = (
+        Index('boar_id_idx', 'id'),
+    )
+
+    id = Column(BigInteger, nullable=False, primary_key=True)
+    ear_tag = Column(BigInteger)
+    ear_lack = Column(BigInteger)
+    birthday = Column(DateTime, nullable=True)
+    entryday = Column(DateTime, nullable=True)
+
+    dormitory_id = Column(BigInteger)
+    category_id = Column(Integer)
+
+    breed_num = Column(Integer)
+    breed_acceptability = Column(Float)
+
     source_id = Column(Integer)
     note = Column(String(255))
