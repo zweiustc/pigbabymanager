@@ -21,6 +21,8 @@ class Boar(base.BaseObject):
         'ear_lack': fields.IntegerField(nullable=True), 
         'birthday': fields.DateTimeField(nullable=True), 
         'entryday': fields.DateTimeField(nullable=True), 
+        #'birthday': fields.StringField(nullable=True), 
+        #'entryday': fields.StringField(nullable=True), 
 
         'dormitory_id': fields.IntegerField(nullable=True), 
         'category_id': fields.IntegerField(nullable=True), 
@@ -46,6 +48,7 @@ class Boar(base.BaseObject):
         return [Boar._from_db_object(cls(context), obj)
                 for obj in db_objects]
 
+    @base.remotable_classmethod
     def list(cls, context, filters=None, limit=3000, marker=1,
              sort_key='id', sort_dir='asc'):
         """Return a list of Boar objects.
@@ -58,9 +61,9 @@ class Boar(base.BaseObject):
         :returns: a list of :class:`Boar` object.
 
         """
-        #import pdb; pdb.set_trace()
         db_boars = cls.dbapi.get_boar_list(
             context, limit=limit, marker=marker, sort_key=sort_key,
             sort_dir=sort_dir, filters=filters)
-        return Boar._from_db_object_list(db_boars, cls,
-                                          context)
+
+        #import pdb; pdb.set_trace()
+        return [Boar._from_db_object(cls(context), obj) for obj in db_boars]
