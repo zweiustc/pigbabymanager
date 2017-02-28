@@ -59,6 +59,23 @@ class BoarsController(rest.RestController):
     def __init__(self):
         super(BoarsController, self).__init__()
 
+    def _format_boar(self, db_boar):
+        boar = dict()
+        boar['id'] = db_boar.id
+        boar['ear_tag'] = db_boar.ear_tag
+        boar['ear_lack'] = db_boar.ear_lack
+        boar['birthday'] = db_boar.birthday
+        boar['entryday'] = db_boar.entryday
+        boar['dormitory_id'] = db_boar.dormitory_id
+        boar['category_id'] = db_boar.category_id
+        boar['breed_num'] = db_boar.breed_num
+        boar['breed_acceptability'] = db_boar.breed_acceptability
+        boar['source_id'] = db_boar.source_id
+        #boar['created_at'] = db_boar.created_at
+        #boar['updated_at'] = db_boar.updated_at
+        
+        return boar
+
     # disable the useful but fake interface
     #@expose.expose(wtypes.text)
     #def get_all(self):
@@ -70,7 +87,9 @@ class BoarsController(rest.RestController):
         boars = objects.Boar().list(
                 pecan.request.context)
         import pdb; pdb.set_trace()
-        return BoarCollection.convert(boars)
+        result = [self._format_boar(boar) for boar in boars]
+        return {'boar': result}
+        #return BoarCollection.convert(boars)
 
     def post(self, network):
         boar_list = {'boar': 'test'}
