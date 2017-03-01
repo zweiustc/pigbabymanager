@@ -1,4 +1,5 @@
 import pecan
+import webob
 from pecan import rest
 import wsme
 from wsme import types as wtypes
@@ -56,6 +57,11 @@ from pig_manage import objects
 
 class BoarsController(rest.RestController):
     """REST boar for Default section"""
+
+    _boar_keys = ['ear_tag', 'ear_lack', 'birthday', 'entryday',
+        'dormitory_id', 'category_id', 'breed_num', 'breed_acceptability',
+        'source_id']
+
     def __init__(self):
         super(BoarsController, self).__init__()
 
@@ -86,14 +92,21 @@ class BoarsController(rest.RestController):
     def get_all(self):
         boars = objects.Boar().list(
                 pecan.request.context)
-        import pdb; pdb.set_trace()
         result = [self._format_boar(boar) for boar in boars]
         return {'boars': result}
-        #return BoarCollection.convert(boars)
 
-    def post(self, network):
-        boar_list = {'boar': 'test'}
-        return boar_list
+    # expose the first value is response type, the second and others
+    # are the parameters of the function
+    @expose.expose(wtypes.text, body=wtypes.text, status_code=201)
+    def post(self, values):
+        boar_dict = dict(values)
+        for key in boar_dict.keys():
+            if key not in self._boar_keys:
+                #raise exception.Invalid('Invalid key in body')
+                msg = "Invalid key  %s in body" % key
+                raise webob.exc.HTTPBadRequest(explanation=msg)
+
+        return boar_dict
 
     @expose.expose(None, wtypes.text)
     def delete(self, fqdn):
