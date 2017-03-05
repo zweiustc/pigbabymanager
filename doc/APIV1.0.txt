@@ -1,0 +1,293 @@
+实验环境: IP --180.76.1489.62   port: 8888
+
+/******************************BOAR API**************************/
+
+1 CreateBoar  
+    url: http:ip:port/boars/    function: POST
+    Header: Content-Type  application/json
+    body:   {"CreateBoar": {"key1": value1, "key2": value2}}
+    response example:
+{
+    "boar":{
+        "entryday":null,
+        "ear_lack":null,
+        "breed_num":null,
+        "birthday":null,
+        "breed_acceptability":null,
+        "ear_tag":3,
+        "dormitory_id":null,
+        "source_id":null,
+        "category_id":null,
+        "id":13
+    }
+}
+
+2 ListBoar
+    url: http:ip:port/boars/    function: GET
+    Header: Content-Type  application/json
+    response example:
+
+{
+    "boars":[
+        {
+            "entryday":null,
+            "ear_lack":65,
+            "breed_num":3,
+            "birthday":null,
+            "breed_acceptability":3,
+            "ear_tag":1,
+            "dormitory_id":3,
+            "source_id":3,
+            "category_id":3,
+            "id":3
+        },
+        {
+            "entryday":null,
+            "ear_lack":null,
+            "breed_num":null,
+            "birthday":null,
+            "breed_acceptability":null,
+            "ear_tag":3,
+            "dormitory_id":null,
+            "source_id":null,
+            "category_id":null,
+            "id":13
+        },
+        {
+            "entryday":null,
+            "ear_lack":null,
+            "breed_num":null,
+            "birthday":null,
+            "breed_acceptability":null,
+            "ear_tag":3,
+            "dormitory_id":null,
+            "source_id":null,
+            "category_id":null,
+            "id":12
+        },
+        {
+            "entryday":null,
+            "ear_lack":null,
+            "breed_num":null,
+            "birthday":null,
+            "breed_acceptability":null,
+            "ear_tag":3,
+            "dormitory_id":null,
+            "source_id":null,
+            "category_id":null,
+            "id":11
+        },
+        {
+            "entryday":null,
+            "ear_lack":null,
+            "breed_num":null,
+            "birthday":null,
+            "breed_acceptability":null,
+            "ear_tag":3,
+            "dormitory_id":null,
+            "source_id":null,
+            "category_id":null,
+            "id":10
+        }
+    ]
+}
+
+3 Detail Boar
+    url: http:ip:port/boars/${boar_id}    function: GET
+    备注：${boar_id}变量代指boar db record的id属性，主键
+    Header: Content-Type  application/json
+    response example:
+{
+    "boar":{
+        "entryday":null,
+        "ear_lack":null,
+        "breed_num":null,
+        "birthday":null,
+        "breed_acceptability":null,
+        "ear_tag":3,
+        "dormitory_id":null,
+        "source_id":null,
+        "category_id":null,
+        "id":13
+    }
+}
+
+4 Update boar metadata
+    url: http:ip:port/boars/${boar_id}    function: PUT 
+    备注：${boar_id}变量代指boar db record的id属性，主键
+    Header: Content-Type  application/json
+    body:   {"UpdateBoar": {"key1": value1, "key2": value2}}
+    body example:
+{
+    "UpdateBoar":{
+        "ear_tag":3,
+        "breed_acceptability":0.5
+    }
+}
+    response example:
+{
+    "boar":{
+        "entryday":null,
+        "ear_lack":65,
+        "breed_num":3,
+        "birthday":null,
+        "breed_acceptability":0.5,
+        "ear_tag":3,
+        "dormitory_id":3,
+        "source_id":3,
+        "category_id":3,
+        "id":3
+    }
+}
+
+5 Delete baor record
+    url: http:ip:port/boars/${boar_id}    function: DELETE 
+    备注：${boar_id}变量代指boar db record的id属性，主键
+    Header: Content-Type  application/json
+
+
+/****************************SOW API *****************************/
+
+1 CreateSow  
+    url: http:ip:port/sows/    function: POST
+    Header: Content-Type  application/json
+    body:   {"CreateSow": {"key1": value1, "key2": value2}}
+    response example:
+{
+    "sow":{
+        "entryday":null,
+        "ear_lack":null,
+        "breed_num":null,
+        "birthday":null,
+        "breed_acceptability":null,
+        "ear_tag":3,
+        "dormitory_id":null,
+        "source_id":null,
+        "category_id":null,
+        "id":13
+    }
+}
+
+2 ListSow
+    url: http:ip:port/sows/    function: GET
+    Header: Content-Type  application/json
+    response example:
+
+{
+    "sows":[
+        {
+            "entryday":null,
+            "ear_lack":65,
+            "breed_num":3,
+            "birthday":null,
+            "breed_acceptability":3,
+            "ear_tag":1,
+            "dormitory_id":3,
+            "source_id":3,
+            "category_id":3,
+            "id":3
+        },
+        {
+            "entryday":null,
+            "ear_lack":null,
+            "breed_num":null,
+            "birthday":null,
+            "breed_acceptability":null,
+            "ear_tag":3,
+            "dormitory_id":null,
+            "source_id":null,
+            "category_id":null,
+            "id":13
+        },
+        {
+            "entryday":null,
+            "ear_lack":null,
+            "breed_num":null,
+            "birthday":null,
+            "breed_acceptability":null,
+            "ear_tag":3,
+            "dormitory_id":null,
+            "source_id":null,
+            "category_id":null,
+            "id":12
+        },
+        {
+            "entryday":null,
+            "ear_lack":null,
+            "breed_num":null,
+            "birthday":null,
+            "breed_acceptability":null,
+            "ear_tag":3,
+            "dormitory_id":null,
+            "source_id":null,
+            "category_id":null,
+            "id":11
+        },
+        {
+            "entryday":null,
+            "ear_lack":null,
+            "breed_num":null,
+            "birthday":null,
+            "breed_acceptability":null,
+            "ear_tag":3,
+            "dormitory_id":null,
+            "source_id":null,
+            "category_id":null,
+            "id":10
+        }
+    ]
+}
+
+3 Detail Sow
+    url: http:ip:port/sows/${sow_id}    function: GET
+    备注：${sow_id}变量代指sow db record的id属性，主键
+    Header: Content-Type  application/json
+    response example:
+{
+    "sow":{
+        "entryday":null,
+        "ear_lack":null,
+        "breed_num":null,
+        "birthday":null,
+        "breed_acceptability":null,
+        "ear_tag":3,
+        "dormitory_id":null,
+        "source_id":null,
+        "category_id":null,
+        "id":13
+    }
+}
+
+4 Update sow metadata
+    url: http:ip:port/sows/${sow_id}    function: PUT 
+    备注：${sow_id}变量代指sow db record的id属性，主键
+    Header: Content-Type  application/json
+    body:   {"UpdateSow": {"key1": value1, "key2": value2}}
+    body example:
+{
+    "UpdateSow":{
+        "ear_tag":3,
+        "breed_acceptability":0.5
+    }
+}
+    response example:
+{
+    "sow":{
+        "entryday":null,
+        "ear_lack":65,
+        "breed_num":3,
+        "birthday":null,
+        "breed_acceptability":0.5,
+        "ear_tag":3,
+        "dormitory_id":3,
+        "source_id":3,
+        "category_id":3,
+        "id":3
+    }
+}
+
+5 Delete baor record
+    url: http:ip:port/sows/${sow_id}    function: DELETE 
+    备注：${sow_id}变量代指sow db record的id属性，主键
+    Header: Content-Type  application/json
+
