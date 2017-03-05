@@ -98,3 +98,7 @@ class Boar(base.BaseObject):
         updates = self.obj_get_changes()
         self.dbapi.update_boar(context, self.id, updates)
         self.obj_reset_changes()
+
+    @base.remotable
+    def delete(self, context=None):
+        self.dbapi.delete_boar(context, self.id)

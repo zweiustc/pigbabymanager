@@ -136,3 +136,10 @@ class BoarsController(rest.RestController):
         boar_obj.update(boar_dict)
         boar_obj.save()
         return {"boar": self._format_boar(boar_obj)}
+
+    @expose.expose(None, wtypes.text, status_code=201)
+    def delete(self, id):
+        boar_obj = objects.Boar.get_by_id(pecan.request.context,
+                        id)
+        boar_obj.delete()
+

@@ -62,6 +62,10 @@ class Sow(Base, Pig_manageBase):
     state_day = Column(Integer)
     source_id = Column(Integer)
     note = Column(String(255))
+    deleted = Column(BigInteger, default=0)
+    created_at = Column('created_at', DateTime)
+    updated_at = Column('updated_at', DateTime)
+    deleted_at = Column('deleted_at', DateTime)
 
 
 class Boar(Base, Pig_manageBase):
@@ -85,3 +89,7 @@ class Boar(Base, Pig_manageBase):
 
     source_id = Column(Integer)
     note = Column(String(255))
+    deleted = Column(BigInteger, default=0)
+    created_at = Column('created_at', DateTime)
+    updated_at = Column('updated_at', DateTime)
+    deleted_at = Column('deleted_at', DateTime)

@@ -45,7 +45,10 @@ class Connection(object):
     def get_boar_by_id(cls, context, id):
         """Get boar by id."""
 
-
     @abc.abstractmethod
     def update_boar(cls, context, id, updates):
         """Update boar info."""
+
+    @abc.abstractmethod
+    def delete_boar(cls, context, id):
+        """delete boar info."""

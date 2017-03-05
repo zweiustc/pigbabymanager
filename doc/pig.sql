@@ -43,7 +43,7 @@ CREATE TABLE `boar` (
   `created_at` date DEFAULT NULL,
   `updated_at` date DEFAULT NULL,
   `deleted_at` date DEFAULT NULL,
-  `deleted` bigint(20) UNSIGNED DEFAULT NULL
+  `deleted` bigint(20) UNSIGNED DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -61,7 +61,7 @@ CREATE TABLE `breed_record` (
   `created_at` date DEFAULT NULL,
   `updated_at` date DEFAULT NULL,
   `deleted_at` date DEFAULT NULL,
-  `deleted` bigint(20) UNSIGNED DEFAULT NULL
+  `deleted` bigint(20) UNSIGNED DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -76,7 +76,7 @@ CREATE TABLE `category` (
   `created_at` date DEFAULT NULL,
   `updated_at` date DEFAULT NULL,
   `deleted_at` date DEFAULT NULL,
-  `deleted` int(11) UNSIGNED DEFAULT NULL
+  `deleted` int(11) UNSIGNED DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -91,7 +91,7 @@ CREATE TABLE `dormitory` (
   `created_at` date DEFAULT NULL,
   `updated_at` date DEFAULT NULL,
   `deleted_at` date DEFAULT NULL,
-  `deleted` int(11) UNSIGNED DEFAULT NULL
+  `deleted` int(11) UNSIGNED DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -109,7 +109,7 @@ CREATE TABLE `parturition_record` (
   `created_at` date DEFAULT NULL,
   `updated_at` date DEFAULT NULL,
   `deleted_at` date DEFAULT NULL,
-  `deleted` bigint(20) UNSIGNED DEFAULT NULL
+  `deleted` bigint(20) UNSIGNED DEFAULT 0 
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -127,7 +127,7 @@ CREATE TABLE `return_record` (
   `created_at` date DEFAULT NULL,
   `updated_at` date DEFAULT NULL,
   `deleted_at` date DEFAULT NULL,
-  `deleted` int(20) UNSIGNED DEFAULT NULL
+  `deleted` int(20) UNSIGNED DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -142,7 +142,7 @@ CREATE TABLE `source` (
   `created_at` date DEFAULT NULL,
   `updated_at` date DEFAULT NULL,
   `deleted_at` date DEFAULT NULL,
-  `deleted` int(11) UNSIGNED DEFAULT NULL
+  `deleted` int(11) UNSIGNED DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -168,7 +168,7 @@ CREATE TABLE `sow` (
   `created_at` date DEFAULT NULL,
   `updated_at` date DEFAULT NULL,
   `deleted_at` date DEFAULT NULL,
-  `deleted` bigint(20) UNSIGNED DEFAULT NULL
+  `deleted` bigint(20) UNSIGNED DEFAULT 0 
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -183,7 +183,7 @@ CREATE TABLE `staff` (
   `created_at` date DEFAULT NULL,
   `updated_at` date DEFAULT NULL,
   `deleted_at` date DEFAULT NULL,
-  `deleted` int(11) UNSIGNED DEFAULT NULL
+  `deleted` int(11) UNSIGNED DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -198,7 +198,7 @@ CREATE TABLE `state` (
   `created_at` date DEFAULT NULL,
   `updated_at` date DEFAULT NULL,
   `deleted_at` date DEFAULT NULL,
-  `deleted` int(11) UNSIGNED DEFAULT NULL
+  `deleted` int(11) UNSIGNED DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -216,7 +216,7 @@ CREATE TABLE `weaning_record` (
   `created_at` date DEFAULT NULL,
   `updated_at` date DEFAULT NULL,
   `deleted_at` date DEFAULT NULL,
-  `deleted` bigint(20) UNSIGNED DEFAULT NULL
+  `deleted` bigint(20) UNSIGNED DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --

@@ -60,9 +60,9 @@ class Connection(api.Connection):
                               sort_key=None, sort_dir=None):
         #import pdb; pdb.set_trace()
         filters = filters or {}
-        #deleted = filters.get('deleted', None)
-        #if deleted is None:
-        #    filters['deleted'] = False
+        deleted = filters.get('deleted', None)
+        if deleted is None:
+            filters['deleted'] = False
         query = model_query(models.Sow)
         if filters and isinstance(filters, dict):
             query = query.filter_by(**filters)
@@ -71,6 +71,10 @@ class Connection(api.Connection):
     def get_boar_list(self, context, filters=None, limit=None,
                               marker=None,
                               sort_key=None, sort_dir=None):
+        filters = filters or {}
+        deleted = filters.get('deleted', None)
+        if deleted is None:
+            filters['deleted'] = 0
         query = model_query(models.Boar)
         if filters and isinstance(filters, dict):
             query = query.filter_by(**filters)
@@ -108,3 +112,15 @@ class Connection(api.Connection):
                                                  id=id)
             ref.update(updates)
             return ref
+
+    def delete_boar(self, context, id):
+        session = get_session()
+        with session.begin():
+            query = model_query(models.Boar, session=session,
+                    read_deleted="no")
+            query = query.filter_by(id=id)
+            try:
+                query.soft_delete()
+            except NoResultFound:
+                raise exception.ResourceNotFound(name='boar',
+                                                 id=id)
