@@ -45,6 +45,7 @@ class Sow(base.BaseObject):
         return [Sow._from_db_object(cls(context), obj)
                 for obj in db_objects]
 
+    @base.remotable_classmethod
     def list(cls, context, filters=None, limit=3000, marker=1,
              sort_key='id', sort_dir='asc'):
         """Return a list of Sow objects.
