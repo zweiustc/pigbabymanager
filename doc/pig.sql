@@ -40,9 +40,9 @@ CREATE TABLE `boar` (
   `breed_acceptability` float DEFAULT NULL COMMENT '配种合格率',
   `source_id` int(11) UNSIGNED DEFAULT NULL COMMENT '来源',
   `note` varchar(255) DEFAULT NULL COMMENT '备注',
-  `created_at` date DEFAULT NULL,
-  `updated_at` date DEFAULT NULL,
-  `deleted_at` date DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
   `deleted` bigint(20) UNSIGNED DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -58,9 +58,9 @@ CREATE TABLE `breed_record` (
   `boar_id` bigint(20) UNSIGNED NOT NULL COMMENT '公猪id',
   `date` date NOT NULL,
   `staff_id` int(11) UNSIGNED NOT NULL,
-  `created_at` date DEFAULT NULL,
-  `updated_at` date DEFAULT NULL,
-  `deleted_at` date DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
   `deleted` bigint(20) UNSIGNED DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -73,9 +73,9 @@ CREATE TABLE `breed_record` (
 CREATE TABLE `category` (
   `id` int(11) UNSIGNED NOT NULL,
   `name` varchar(36) NOT NULL,
-  `created_at` date DEFAULT NULL,
-  `updated_at` date DEFAULT NULL,
-  `deleted_at` date DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
   `deleted` int(11) UNSIGNED DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -88,9 +88,9 @@ CREATE TABLE `category` (
 CREATE TABLE `dormitory` (
   `id` int(11) UNSIGNED NOT NULL,
   `name` varchar(36) NOT NULL,
-  `created_at` date DEFAULT NULL,
-  `updated_at` date DEFAULT NULL,
-  `deleted_at` date DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
   `deleted` int(11) UNSIGNED DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -106,9 +106,9 @@ CREATE TABLE `parturition_record` (
   `piglet_num` int(11) UNSIGNED NOT NULL COMMENT '仔猪数量',
   `date` date NOT NULL,
   `staff_id` int(11) UNSIGNED NOT NULL,
-  `created_at` date DEFAULT NULL,
-  `updated_at` date DEFAULT NULL,
-  `deleted_at` date DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
   `deleted` bigint(20) UNSIGNED DEFAULT 0 
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -124,9 +124,9 @@ CREATE TABLE `return_record` (
   `type` int(11) UNSIGNED NOT NULL COMMENT '空留返类型',
   `date` date NOT NULL,
   `staff_id` int(11) UNSIGNED NOT NULL,
-  `created_at` date DEFAULT NULL,
-  `updated_at` date DEFAULT NULL,
-  `deleted_at` date DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
   `deleted` int(20) UNSIGNED DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -139,9 +139,9 @@ CREATE TABLE `return_record` (
 CREATE TABLE `source` (
   `id` int(11) UNSIGNED NOT NULL,
   `name` varchar(36) NOT NULL,
-  `created_at` date DEFAULT NULL,
-  `updated_at` date DEFAULT NULL,
-  `deleted_at` date DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
   `deleted` int(11) UNSIGNED DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -165,9 +165,9 @@ CREATE TABLE `sow` (
   `state_day` int(11) UNSIGNED DEFAULT NULL COMMENT '状态天数',
   `source_id` int(11) UNSIGNED DEFAULT NULL COMMENT '来源',
   `note` varchar(255) DEFAULT NULL COMMENT '备注',
-  `created_at` date DEFAULT NULL,
-  `updated_at` date DEFAULT NULL,
-  `deleted_at` date DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
   `deleted` bigint(20) UNSIGNED DEFAULT 0 
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -180,9 +180,9 @@ CREATE TABLE `sow` (
 CREATE TABLE `staff` (
   `id` int(11) UNSIGNED NOT NULL,
   `name` varchar(36) NOT NULL,
-  `created_at` date DEFAULT NULL,
-  `updated_at` date DEFAULT NULL,
-  `deleted_at` date DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
   `deleted` int(11) UNSIGNED DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -195,9 +195,9 @@ CREATE TABLE `staff` (
 CREATE TABLE `state` (
   `id` int(11) UNSIGNED NOT NULL,
   `name` varchar(36) NOT NULL,
-  `created_at` date DEFAULT NULL,
-  `updated_at` date DEFAULT NULL,
-  `deleted_at` date DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
   `deleted` int(11) UNSIGNED DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -213,9 +213,9 @@ CREATE TABLE `weaning_record` (
   `rate` float NOT NULL COMMENT '断奶合格率',
   `date` date NOT NULL,
   `staff_id` int(11) UNSIGNED NOT NULL,
-  `created_at` date DEFAULT NULL,
-  `updated_at` date DEFAULT NULL,
-  `deleted_at` date DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
   `deleted` bigint(20) UNSIGNED DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
