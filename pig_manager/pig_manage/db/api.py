@@ -33,9 +33,25 @@ class Connection(object):
         """return all sow record in database."""
 
     @abc.abstractmethod
+    def create_sow(cls, context, values):
+        """Create a new sow record."""
+
+    @abc.abstractmethod
+    def get_sow_by_id(cls, context, id):
+        """Get sow by id."""
+
+    @abc.abstractmethod
+    def update_sow(cls, context, id, updates):
+        """Update sow info."""
+
+    @abc.abstractmethod
+    def delete_sow(cls, context, id):
+        """delete sow info."""
+
+    @abc.abstractmethod
     def get_boar_list(cls, context, filters=None, limit=None,
             marker=None, sort_key=None, sort_dir=None):
-        """return all sow record in database."""
+        """return all boar record in database."""
 
     @abc.abstractmethod
     def create_boar(cls, context, values):

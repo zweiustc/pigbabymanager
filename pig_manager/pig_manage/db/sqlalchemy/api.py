@@ -62,11 +62,56 @@ class Connection(api.Connection):
         filters = filters or {}
         deleted = filters.get('deleted', None)
         if deleted is None:
-            filters['deleted'] = False
+            filters['deleted'] = 0
         query = model_query(models.Sow)
         if filters and isinstance(filters, dict):
             query = query.filter_by(**filters)
         return query.all()
+
+    def get_sow_by_id(self, context, id):
+        session = get_session()
+        with session.begin():
+            query = model_query(models.Sow).filter_by(id=id)
+            try:
+                return query.one()
+            except NoResultFound:
+                raise exception.ResourceNotFound(name='Sow', id=id)
+
+    def create_sow(self, context, values):
+        session = get_session()
+        with session.begin():
+            sow = models.Sow()
+            sow.update(values)
+            try:
+                sow.save(session=session)
+            except db_exc.DBDuplicateEntry as exc:
+                raise
+            return sow
+
+    def update_sow(self, context, id, updates):
+        session = get_session()
+        with session.begin():
+            query = model_query(models.Sow, session=session)
+            query = query.filter_by(id=id)
+            try:
+                ref = query.with_lockmode('update').one()
+            except NoResultFound:
+                raise exception.ResourceNotFound(name='sow',
+                                                 id=id)
+            ref.update(updates)
+            return ref
+
+    def delete_sow(self, context, id):
+        session = get_session()
+        with session.begin():
+            query = model_query(models.Sow, session=session,
+                    read_deleted="no")
+            query = query.filter_by(id=id)
+            try:
+                query.soft_delete()
+            except NoResultFound:
+                raise exception.ResourceNotFound(name='sow',
+                                                 id=id)
 
     def get_boar_list(self, context, filters=None, limit=None,
                               marker=None,

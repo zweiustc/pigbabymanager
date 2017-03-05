@@ -61,5 +61,38 @@ class Sow(base.BaseObject):
         db_sows = cls.dbapi.get_sow_list(
             context, limit=limit, marker=marker, sort_key=sort_key,
             sort_dir=sort_dir, filters=filters)
-        return Sow._from_db_object_list(db_sows, cls,
-                                          context)
+        return [Sow._from_db_object(cls(context), obj) for obj in db_sows]
+
+    @base.remotable_classmethod
+    def get_by_id(cls, context, id):
+        db_sow = cls.dbapi.get_sow_by_id(context, id)
+        return Sow._from_db_object(cls(context), db_sow)
+
+    @base.remotable
+    def create(self, context=None):
+        values = self.obj_get_changes()
+
+        db_sow = self.dbapi.create_sow(context, values)
+        return self._from_db_object(self, db_sow)
+
+    @base.remotable
+    def save(self, context=None):
+        """Save updates to this sow.
+
+        Updates will be made column by column based on the result
+        of self.what_changed().
+
+        :param context: Security context. NOTE: This should only
+                        be used internally by the indirection_api.
+                        Unfortunately, RPC requires context as the first
+                        argument, even though we don't use it.
+                        A context should be set when instantiating the
+                        object, e.g.: Sow(context)
+        """
+        updates = self.obj_get_changes()
+        self.dbapi.update_sow(context, self.id, updates)
+        self.obj_reset_changes()
+
+    @base.remotable
+    def delete(self, context=None):
+        self.dbapi.delete_sow(context, self.id)   
