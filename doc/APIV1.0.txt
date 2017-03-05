@@ -1,9 +1,9 @@
-实验环境: IP --180.76.1489.62   port: 8888
+实验环境: IP --180.76.1489.62   port/v1: 8888
 
 /******************************BOAR API**************************/
 
 1 CreateBoar  
-    url: http:ip:port/boars/    function: POST
+    url: http://ip:port/v1/boars/    function: POST
     Header: Content-Type  application/json
     body:   {"CreateBoar": {"key1": value1, "key2": value2}}
     response example:
@@ -23,7 +23,7 @@
 }
 
 2 ListBoar
-    url: http:ip:port/boars/    function: GET
+    url: http://ip:port/v1/boars/    function: GET
     Header: Content-Type  application/json
     response example:
 
@@ -93,7 +93,7 @@
 }
 
 3 Detail Boar
-    url: http:ip:port/boars/${boar_id}    function: GET
+    url: http://ip:port/v1/boars/${boar_id}    function: GET
     备注：${boar_id}变量代指boar db record的id属性，主键
     Header: Content-Type  application/json
     response example:
@@ -113,7 +113,7 @@
 }
 
 4 Update boar metadata
-    url: http:ip:port/boars/${boar_id}    function: PUT 
+    url: http://ip:port/v1/boars/${boar_id}    function: PUT 
     备注：${boar_id}变量代指boar db record的id属性，主键
     Header: Content-Type  application/json
     body:   {"UpdateBoar": {"key1": value1, "key2": value2}}
@@ -141,7 +141,7 @@
 }
 
 5 Delete baor record
-    url: http:ip:port/boars/${boar_id}    function: DELETE 
+    url: http://ip:port/v1/boars/${boar_id}    function: DELETE 
     备注：${boar_id}变量代指boar db record的id属性，主键
     Header: Content-Type  application/json
 
@@ -149,7 +149,7 @@
 /****************************SOW API *****************************/
 
 1 CreateSow  
-    url: http:ip:port/sows/    function: POST
+    url: http://ip:port/v1/sows/    function: POST
     Header: Content-Type  application/json
     body:   {"CreateSow": {"key1": value1, "key2": value2}}
     response example:
@@ -169,7 +169,7 @@
 }
 
 2 ListSow
-    url: http:ip:port/sows/    function: GET
+    url: http://ip:port/v1/sows/    function: GET
     Header: Content-Type  application/json
     response example:
 
@@ -239,7 +239,7 @@
 }
 
 3 Detail Sow
-    url: http:ip:port/sows/${sow_id}    function: GET
+    url: http://ip:port/v1/sows/${sow_id}    function: GET
     备注：${sow_id}变量代指sow db record的id属性，主键
     Header: Content-Type  application/json
     response example:
@@ -259,7 +259,7 @@
 }
 
 4 Update sow metadata
-    url: http:ip:port/sows/${sow_id}    function: PUT 
+    url: http://ip:port/v1/sows/${sow_id}    function: PUT 
     备注：${sow_id}变量代指sow db record的id属性，主键
     Header: Content-Type  application/json
     body:   {"UpdateSow": {"key1": value1, "key2": value2}}
@@ -287,7 +287,7 @@
 }
 
 5 Delete baor record
-    url: http:ip:port/sows/${sow_id}    function: DELETE 
+    url: http://ip:port/v1/sows/${sow_id}    function: DELETE 
     备注：${sow_id}变量代指sow db record的id属性，主键
     Header: Content-Type  application/json
 
