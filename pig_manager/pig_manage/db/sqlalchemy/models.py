@@ -2,10 +2,11 @@ import json
 
 from oslo_db.sqlalchemy import models
 import six.moves.urllib.parse as urlparse
-from sqlalchemy import (Column, Index, Integer, BigInteger, Enum, String, Float,
+from sqlalchemy import (ForeignKey, Column, Index, Integer, BigInteger, Enum, String, Float,
                         schema, Unicode, Text, SmallInteger, Boolean, DateTime)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import orm
+from sqlalchemy.orm import relationship
 from pig_manage.db.sqlalchemy import types
 
 from pig_manage import config as conf
@@ -40,6 +41,16 @@ class Pig_manageBase(models.TimestampMixin,
         super(KingcloudosBase, self).save(session)
 
 Base = declarative_base(cls=Pig_manageBase)
+
+class Category(Base, Pig_manageBase):
+    """Represents category in pig farm."""
+    __tablename__ = 'category'
+    __table_args__ = (
+        Index('category_id_idx', 'id'),
+    )
+    id = Column(Integer, nullable=False, primary_key=True)
+    name = Column(String(36))
+    
 
 class Sow(Base, Pig_manageBase):
     """Represents sow in pig farm."""
@@ -76,12 +87,11 @@ class Boar(Base, Pig_manageBase):
     ear_lack = Column(BigInteger)
     birthday = Column(DateTime, nullable=True)
     entryday = Column(DateTime, nullable=True)
-
     dormitory_id = Column(BigInteger)
-    category_id = Column(Integer)
-
+    category_id = Column(Integer,ForeignKey(Category.id))
     breed_num = Column(Integer)
     breed_acceptability = Column(Float)
-
     source_id = Column(Integer)
     note = Column(String(255))
+    category = relationship('Category')
+#Category.boar_tag = relationship("Boar",order_by=Boar.id,back_populates="boar")
