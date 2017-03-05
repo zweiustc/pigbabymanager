@@ -68,9 +68,33 @@ class Boar(base.BaseObject):
         #import pdb; pdb.set_trace()
         return [Boar._from_db_object(cls(context), obj) for obj in db_boars]
 
+
+    @base.remotable_classmethod
+    def get_by_id(cls, context, id):
+        db_boar = cls.dbapi.get_boar_by_id(context, id)
+        return Boar._from_db_object(cls(context), db_boar)
+
     @base.remotable
     def create(self, context=None):
         values = self.obj_get_changes()
 
         db_boar = self.dbapi.create_boar(context, values)
         return self._from_db_object(self, db_boar)
+
+    @base.remotable
+    def save(self, context=None):
+        """Save updates to this boar.
+
+        Updates will be made column by column based on the result
+        of self.what_changed().
+
+        :param context: Security context. NOTE: This should only
+                        be used internally by the indirection_api.
+                        Unfortunately, RPC requires context as the first
+                        argument, even though we don't use it.
+                        A context should be set when instantiating the
+                        object, e.g.: Boar(context)
+        """
+        updates = self.obj_get_changes()
+        self.dbapi.update_boar(context, self.id, updates)
+        self.obj_reset_changes()

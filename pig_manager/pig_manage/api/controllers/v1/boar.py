@@ -128,6 +128,11 @@ class BoarsController(rest.RestController):
         boar_list = {'boar': 'test'}
         return boar_list
 
-    def patch(self, fqdn, patch):
-        boar_list = {'boar': 'test'}
-        return boar_list
+    @expose.expose(wtypes.text, wtypes.text, body=wtypes.text)
+    def put(self, id, patch):
+        boar_dict = patch.get('UpdateBoar', None)
+        boar_obj = objects.Boar.get_by_id(pecan.request.context,
+                id)
+        boar_obj.update(boar_dict)
+        boar_obj.save()
+        return {"boar": self._format_boar(boar_obj)}

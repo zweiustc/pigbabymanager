@@ -40,3 +40,12 @@ class Connection(object):
     @abc.abstractmethod
     def create_boar(cls, context, values):
         """Create a new boar record."""
+
+    @abc.abstractmethod
+    def get_boar_by_id(cls, context, id):
+        """Get boar by id."""
+
+
+    @abc.abstractmethod
+    def update_boar(cls, context, id, updates):
+        """Update boar info."""

@@ -76,6 +76,15 @@ class Connection(api.Connection):
             query = query.filter_by(**filters)
         return query.all()
 
+    def get_boar_by_id(self, context, id):
+        session = get_session()
+        with session.begin():
+            query = model_query(models.Boar).filter_by(id=id)
+            try:
+                return query.one()
+            except NoResultFound:
+                raise exception.ResourceNotFound(name='boar', id=id)
+
     def create_boar(self, context, values):
         session = get_session()
         with session.begin():
@@ -86,3 +95,16 @@ class Connection(api.Connection):
             except db_exc.DBDuplicateEntry as exc:
                 raise
             return boar
+
+    def update_boar(self, context, id, updates):
+        session = get_session()
+        with session.begin():
+            query = model_query(models.Boar, session=session)
+            query = query.filter_by(id=id)
+            try:
+                ref = query.with_lockmode('update').one()
+            except NoResultFound:
+                raise exception.ResourceNotFound(name='boar',
+                                                 id=id)
+            ref.update(updates)
+            return ref
