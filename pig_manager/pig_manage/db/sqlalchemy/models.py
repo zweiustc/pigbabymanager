@@ -51,6 +51,32 @@ class Category(Base, Pig_manageBase):
     id = Column(Integer, nullable=False, primary_key=True)
     name = Column(String(36))
     
+class Dormitory(Base, Pig_manageBase):
+    """Represents dormitory in pig farm."""
+    __tablename__ = 'dormitory'
+    __table_args__ = (
+        Index('dormitory_id_idx', 'id'),
+    )
+    id = Column(Integer, nullable=False, primary_key=True)
+    name = Column(String(36))
+
+class Source(Base, Pig_manageBase):
+    """Represents source in pig farm."""
+    __tablename__ = 'source'
+    __table_args__ = (
+        Index('source_id_idx', 'id'),
+    )
+    id = Column(Integer, nullable=False, primary_key=True)
+    name = Column(String(36))
+
+class State(Base, Pig_manageBase):
+    """Represents state in pig farm."""
+    __tablename__ = 'state'
+    __table_args__ = (
+        Index('state_id_idx', 'id'),
+    )
+    id = Column(Integer, nullable=False, primary_key=True)
+    name = Column(String(36))
 
 class Sow(Base, Pig_manageBase):
     """Represents sow in pig farm."""
@@ -77,6 +103,10 @@ class Sow(Base, Pig_manageBase):
     created_at = Column('created_at', DateTime)
     updated_at = Column('updated_at', DateTime)
     deleted_at = Column('deleted_at', DateTime)
+    category = relationship('Category')
+    dormitory = relationship('Dormitory')
+    source = relationship('Source')
+    state = relationship('State')
 
 
 class Boar(Base, Pig_manageBase):
@@ -97,9 +127,12 @@ class Boar(Base, Pig_manageBase):
     breed_acceptability = Column(Float)
     source_id = Column(Integer)
     note = Column(String(255))
-    category = relationship('Category')
     created_at = Column('created_at', DateTime)
     updated_at = Column('updated_at', DateTime)
     deleted_at = Column('deleted_at', DateTime)
     #Category.boar_tag = relationship("Boar",order_by=Boar.id,back_populates="boar")
     deleted = Column(BigInteger, default=0)
+    category = relationship('Category')
+    dormitory = relationship('Dormitory')
+    source = relationship('Source')
+    
