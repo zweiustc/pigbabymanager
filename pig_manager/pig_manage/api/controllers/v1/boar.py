@@ -94,6 +94,12 @@ class BoarsController(rest.RestController):
                 pecan.request.context)
         result = [self._format_boar(boar) for boar in boars]
         return {'boars': result}
+    
+    @expose.expose(wtypes.text, wtypes.text)
+    def get_one(self,id):
+        boar = objects.Boar().get_by_id(pecan.request.context,id)
+        result = self._format_boar(boar)
+        return {'boar': result}
 
     # expose the first value is response type, the second and others
     # are the parameters of the function
