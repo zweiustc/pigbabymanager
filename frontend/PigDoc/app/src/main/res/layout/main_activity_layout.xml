@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ustcerqiu.pigdoc.MainActivity"
+    android:id="@+id/main_activity_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+<!-- 标题栏部分 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_bar_height"
+        android:orientation="horizontal"
+        style="@style/TitleStyle.Left"  >
+
+        <!--人头布局的层叠效果，出现圆头图，主背景为dark色-->
+        <FrameLayout
+            android:layout_width="@dimen/user_pic_size"
+            android:layout_height="@dimen/user_pic_size"
+            android:layout_marginLeft="16dp">
+            <ImageView
+                android:id="@+id/user_pic_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/kkwang"/> <!--user_img-->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/user_pic_cover"/> <!--user_img_cover-->
+            <TextView
+                android:id="@+id/user_level"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorAccent"
+                android:gravity="right|bottom"
+                android:textSize="@dimen/small_text"
+                android:textStyle="bold|italic"
+                android:text="@string/user_level"/>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="6dp">
+            <TextView
+                android:id="@+id/text_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_icons"
+                android:textSize="@dimen/normal_text"
+                android:text="@string/user_name"/>
+            <TextView
+                android:id="@+id/text_user_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryLight"
+                android:textSize="@dimen/small_text"
+                android:text="@string/user_account"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_user_department"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="right|center"
+            android:textSize="@dimen/small_text"
+            android:textColor="@color/colorPrimaryLight"
+            android:text="@string/user_department" />
+    </LinearLayout>
+
+    <!--中间内容部分-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/main_bg">
+        <!--顶部分割线，白色半透明-->
+        <View android:background="#77FFFFFF" android:layout_marginLeft="16dp" android:layout_marginRight="16dp" android:layout_width="match_parent" android:layout_height="1px"  />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_margin="6dp"
+            >
+            <ImageView android:id="@+id/image_rate_1"
+                android:layout_width="250dp"
+                android:layout_height="3dp"
+                android:src="@drawable/rate_unclip"
+                android:background="@drawable/rate_clip"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <!--底部导航栏的状态-->
+    <include layout="@layout/navigator_bottom"/>
+</LinearLayout>
