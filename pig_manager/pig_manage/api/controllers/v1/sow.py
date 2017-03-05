@@ -48,6 +48,12 @@ class SowsController(rest.RestController):
         result = [self._format_sow(sow) for sow in sows]
         return {'sows': result}
 
+    @expose.expose(wtypes.text, wtypes.text)
+    def get_one(self,id):
+        sow = objects.Sow().get_by_id(pecan.request.context,id)
+        result = self._format_sow(sow)
+        return {'sow': result}
+
     # expose the first value is response type, the second and others
     # are the parameters of the function
     @expose.expose(wtypes.text, body=wtypes.text, status_code=201)
