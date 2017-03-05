@@ -33,12 +33,12 @@ class Pig_manageBase(models.TimestampMixin,
         return d
 
     def save(self, session=None):
-        import kingcloudos.db.sqlalchemy.api as db_api
+        import pig_manage.db.sqlalchemy.api as db_api
 
         if session is None:
             session = db_api.get_session()
 
-        super(KingcloudosBase, self).save(session)
+        super(Pig_manageBase, self).save(session)
 
 Base = declarative_base(cls=Pig_manageBase)
 
@@ -73,6 +73,10 @@ class Sow(Base, Pig_manageBase):
     state_day = Column(Integer)
     source_id = Column(Integer)
     note = Column(String(255))
+    deleted = Column(BigInteger, default=0)
+    created_at = Column('created_at', DateTime)
+    updated_at = Column('updated_at', DateTime)
+    deleted_at = Column('deleted_at', DateTime)
 
 
 class Boar(Base, Pig_manageBase):
@@ -94,4 +98,8 @@ class Boar(Base, Pig_manageBase):
     source_id = Column(Integer)
     note = Column(String(255))
     category = relationship('Category')
-#Category.boar_tag = relationship("Boar",order_by=Boar.id,back_populates="boar")
+    created_at = Column('created_at', DateTime)
+    updated_at = Column('updated_at', DateTime)
+    deleted_at = Column('deleted_at', DateTime)
+    #Category.boar_tag = relationship("Boar",order_by=Boar.id,back_populates="boar")
+    deleted = Column(BigInteger, default=0)

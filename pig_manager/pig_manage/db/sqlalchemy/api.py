@@ -60,9 +60,9 @@ class Connection(api.Connection):
                               sort_key=None, sort_dir=None):
         #import pdb; pdb.set_trace()
         filters = filters or {}
-        #deleted = filters.get('deleted', None)
-        #if deleted is None:
-        #    filters['deleted'] = False
+        deleted = filters.get('deleted', None)
+        if deleted is None:
+            filters['deleted'] = False
         query = model_query(models.Sow)
         if filters and isinstance(filters, dict):
             query = query.filter_by(**filters)
@@ -71,7 +71,56 @@ class Connection(api.Connection):
     def get_boar_list(self, context, filters=None, limit=None,
                               marker=None,
                               sort_key=None, sort_dir=None):
+        filters = filters or {}
+        deleted = filters.get('deleted', None)
+        if deleted is None:
+            filters['deleted'] = 0
         query = model_query(models.Boar)
         if filters and isinstance(filters, dict):
             query = query.filter_by(**filters)
         return query.all()
+
+    def get_boar_by_id(self, context, id):
+        session = get_session()
+        with session.begin():
+            query = model_query(models.Boar).filter_by(id=id)
+            try:
+                return query.one()
+            except NoResultFound:
+                raise exception.ResourceNotFound(name='boar', id=id)
+
+    def create_boar(self, context, values):
+        session = get_session()
+        with session.begin():
+            boar = models.Boar()
+            boar.update(values)
+            try:
+                boar.save(session=session)
+            except db_exc.DBDuplicateEntry as exc:
+                raise
+            return boar
+
+    def update_boar(self, context, id, updates):
+        session = get_session()
+        with session.begin():
+            query = model_query(models.Boar, session=session)
+            query = query.filter_by(id=id)
+            try:
+                ref = query.with_lockmode('update').one()
+            except NoResultFound:
+                raise exception.ResourceNotFound(name='boar',
+                                                 id=id)
+            ref.update(updates)
+            return ref
+
+    def delete_boar(self, context, id):
+        session = get_session()
+        with session.begin():
+            query = model_query(models.Boar, session=session,
+                    read_deleted="no")
+            query = query.filter_by(id=id)
+            try:
+                query.soft_delete()
+            except NoResultFound:
+                raise exception.ResourceNotFound(name='boar',
+                                                 id=id)

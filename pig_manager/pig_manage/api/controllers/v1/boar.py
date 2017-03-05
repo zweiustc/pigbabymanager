@@ -99,20 +99,47 @@ class BoarsController(rest.RestController):
     # are the parameters of the function
     @expose.expose(wtypes.text, body=wtypes.text, status_code=201)
     def post(self, values):
-        boar_dict = dict(values)
+        body = dict(values)
+
+        _actions = {
+            'CreateBoar': self._action_create_boar,
+        }
+        for action, data in body.iteritems():
+            if action not in _actions.keys():
+                msg = _('Boar do not support %s action') % action
+                raise webob.exc.HTTPBadRequest(explanation=msg)
+
+            return _actions[action](pecan.request.context, data)
+
+    def _action_create_boar(self, context, boar_dict):
         for key in boar_dict.keys():
             if key not in self._boar_keys:
                 #raise exception.Invalid('Invalid key in body')
                 msg = "Invalid key  %s in body" % key
                 raise webob.exc.HTTPBadRequest(explanation=msg)
 
-        return boar_dict
+        boar_obj = objects.Boar(context)
+        boar_obj.update(boar_dict)
+        result = boar_obj.create(context) 
+        return {"boar": self._format_boar(result)}
 
     @expose.expose(None, wtypes.text)
     def delete(self, fqdn):
         boar_list = {'boar': 'test'}
         return boar_list
 
-    def patch(self, fqdn, patch):
-        boar_list = {'boar': 'test'}
-        return boar_list
+    @expose.expose(wtypes.text, wtypes.text, body=wtypes.text)
+    def put(self, id, patch):
+        boar_dict = patch.get('UpdateBoar', None)
+        boar_obj = objects.Boar.get_by_id(pecan.request.context,
+                id)
+        boar_obj.update(boar_dict)
+        boar_obj.save()
+        return {"boar": self._format_boar(boar_obj)}
+
+    @expose.expose(None, wtypes.text, status_code=201)
+    def delete(self, id):
+        boar_obj = objects.Boar.get_by_id(pecan.request.context,
+                        id)
+        boar_obj.delete()
+
