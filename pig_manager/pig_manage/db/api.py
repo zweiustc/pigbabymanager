@@ -36,3 +36,7 @@ class Connection(object):
     def get_boar_list(cls, context, filters=None, limit=None,
             marker=None, sort_key=None, sort_dir=None):
         """return all sow record in database."""
+
+    @abc.abstractmethod
+    def create_boar(cls, context, values):
+        """Create a new boar record."""

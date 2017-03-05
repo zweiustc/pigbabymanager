@@ -75,3 +75,14 @@ class Connection(api.Connection):
         if filters and isinstance(filters, dict):
             query = query.filter_by(**filters)
         return query.all()
+
+    def create_boar(self, context, values):
+        session = get_session()
+        with session.begin():
+            boar = models.Boar()
+            boar.update(values)
+            try:
+                boar.save(session=session)
+            except db_exc.DBDuplicateEntry as exc:
+                raise
+            return boar

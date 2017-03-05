@@ -67,3 +67,10 @@ class Boar(base.BaseObject):
 
         #import pdb; pdb.set_trace()
         return [Boar._from_db_object(cls(context), obj) for obj in db_boars]
+
+    @base.remotable
+    def create(self, context=None):
+        values = self.obj_get_changes()
+
+        db_boar = self.dbapi.create_boar(context, values)
+        return self._from_db_object(self, db_boar)

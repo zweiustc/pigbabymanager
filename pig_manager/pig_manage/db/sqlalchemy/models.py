@@ -32,12 +32,12 @@ class Pig_manageBase(models.TimestampMixin,
         return d
 
     def save(self, session=None):
-        import kingcloudos.db.sqlalchemy.api as db_api
+        import pig_manage.db.sqlalchemy.api as db_api
 
         if session is None:
             session = db_api.get_session()
 
-        super(KingcloudosBase, self).save(session)
+        super(Pig_manageBase, self).save(session)
 
 Base = declarative_base(cls=Pig_manageBase)
 
