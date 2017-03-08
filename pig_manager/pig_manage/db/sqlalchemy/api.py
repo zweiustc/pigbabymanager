@@ -6,6 +6,7 @@ from oslo_utils import timeutils
 from oslo_utils import uuidutils
 from sqlalchemy.orm.exc import MultipleResultsFound
 from sqlalchemy.orm.exc import NoResultFound
+from sqlalchemy.orm import joinedload
 
 from pig_manage.common import exception
 from pig_manage.db import api
@@ -121,6 +122,11 @@ class Connection(api.Connection):
         if deleted is None:
             filters['deleted'] = 0
         query = model_query(models.Boar)
+
+        columns_to_join = ['category']
+        for column in columns_to_join:
+            query = query.options(joinedload(column))
+
         if filters and isinstance(filters, dict):
             query = query.filter_by(**filters)
         return query.all()
@@ -128,8 +134,15 @@ class Connection(api.Connection):
     def get_boar_by_id(self, context, id):
         session = get_session()
         with session.begin():
-            query = model_query(models.Boar).filter_by(id=id)
+            #query = model_query(models.Boar).filter_by(id=id)
+            query = model_query(models.Boar)
+
+            columns_to_join = ['category']
+            for column in columns_to_join:
+                query = query.options(joinedload(column))
+
             try:
+                query = query.filter_by(id=id)
                 return query.one()
             except NoResultFound:
                 raise exception.ResourceNotFound(name='boar', id=id)

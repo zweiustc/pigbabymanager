@@ -32,13 +32,18 @@ class Boar(base.BaseObject):
         #'state_id': fields.IntegerField(nullable=True), 
         #'state_day': fields.IntegerField(nullable=True), 
         'source_id': fields.IntegerField(nullable=True), 
+        'category': fields.StringField(nullable=True),
     }
 
     @staticmethod
     def _from_db_object(boar, db_boar):
         """Converts a database entity to a formal object."""
+        foreign_key = ['category']
         for field in boar.fields:
-            boar[field] = db_boar[field]
+            if field not in foreign_key:
+                boar[field] = db_boar[field]
+            if field == 'category' and db_boar.category:
+                boar[field] = db_boar.category.name
         boar.obj_reset_changes()
         return boar
 

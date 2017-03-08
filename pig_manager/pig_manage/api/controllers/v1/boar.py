@@ -77,6 +77,8 @@ class BoarsController(rest.RestController):
         boar['breed_num'] = db_boar.breed_num
         boar['breed_acceptability'] = db_boar.breed_acceptability
         boar['source_id'] = db_boar.source_id
+        if 'category' in db_boar.keys():
+            boar['category'] = db_boar.category
         #boar['created_at'] = db_boar.created_at
         #boar['updated_at'] = db_boar.updated_at
         
