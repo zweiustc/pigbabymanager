@@ -103,6 +103,7 @@ class Sow(Base, Pig_manageBase):
     created_at = Column('created_at', DateTime)
     updated_at = Column('updated_at', DateTime)
     deleted_at = Column('deleted_at', DateTime)
+
     category = relationship('Category')
     dormitory = relationship('Dormitory')
     source = relationship('Source')
@@ -132,7 +133,7 @@ class Boar(Base, Pig_manageBase):
     deleted_at = Column('deleted_at', DateTime)
     #Category.boar_tag = relationship("Boar",order_by=Boar.id,back_populates="boar")
     deleted = Column(BigInteger, default=0)
+
     category = relationship('Category')
     dormitory = relationship('Dormitory')
     source = relationship('Source')
-    
