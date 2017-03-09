@@ -79,6 +79,10 @@ class BoarsController(rest.RestController):
         boar['source_id'] = db_boar.source_id
         if 'category' in db_boar.keys():
             boar['category'] = db_boar.category
+        if 'dormitory' in db_boar.keys():
+            boar['dormitory'] = db_boar.dormitory
+        if 'source' in db_boar.keys():
+            boar['source'] = db_boar.source
         #boar['created_at'] = db_boar.created_at
         #boar['updated_at'] = db_boar.updated_at
         

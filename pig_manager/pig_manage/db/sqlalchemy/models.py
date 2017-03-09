@@ -139,6 +139,10 @@ class Boar(Base, Pig_manageBase):
 
     category = orm.relationship(Category, foreign_keys=category_id,
             primaryjoin='Boar.category_id == Category.id')
+    dormitory = orm.relationship(Dormitory, foreign_keys=dormitory_id,
+            primaryjoin='Boar.dormitory_id == Dormitory.id')
+    source = orm.relationship(Source, foreign_keys=source_id,
+            primaryjoin='Boar.source_id == Source.id')
     #category = relationship('Category')
     #dormitory = relationship('Dormitory')
     #source = relationship('Source')

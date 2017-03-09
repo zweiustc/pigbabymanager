@@ -123,7 +123,7 @@ class Connection(api.Connection):
             filters['deleted'] = 0
         query = model_query(models.Boar)
 
-        columns_to_join = ['category']
+        columns_to_join = ['category', 'dormitory', 'source']
         for column in columns_to_join:
             query = query.options(joinedload(column))
 
@@ -137,7 +137,7 @@ class Connection(api.Connection):
             #query = model_query(models.Boar).filter_by(id=id)
             query = model_query(models.Boar)
 
-            columns_to_join = ['category']
+            columns_to_join = ['category', 'dormitory', 'source']
             for column in columns_to_join:
                 query = query.options(joinedload(column))
 
