@@ -65,6 +65,12 @@ class Connection(api.Connection):
         if deleted is None:
             filters['deleted'] = 0
         query = model_query(models.Sow)
+
+        columns_to_join = ['category', 'dormitory', 'source',
+                        'state']
+        for column in columns_to_join:
+            query = query.options(joinedload(column))
+
         if filters and isinstance(filters, dict):
             query = query.filter_by(**filters)
         return query.all()
@@ -72,8 +78,16 @@ class Connection(api.Connection):
     def get_sow_by_id(self, context, id):
         session = get_session()
         with session.begin():
-            query = model_query(models.Sow).filter_by(id=id)
+            #query = model_query(models.Sow).filter_by(id=id)
+            query = model_query(models.Sow)
+
+            columns_to_join = ['category', 'dormitory', 'source',
+                            'state']
+            for column in columns_to_join:
+                query = query.options(joinedload(column))
+
             try:
+                query = query.filter_by(id=id)
                 return query.one()
             except NoResultFound:
                 raise exception.ResourceNotFound(name='Sow', id=id)

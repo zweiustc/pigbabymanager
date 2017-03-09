@@ -29,13 +29,27 @@ class Sow(base.BaseObject):
         'state_id': fields.IntegerField(nullable=True), 
         'state_day': fields.IntegerField(nullable=True), 
         'source_id': fields.IntegerField(nullable=True), 
+        'category': fields.StringField(nullable=True),
+        'dormitory': fields.StringField(nullable=True),
+        'source': fields.StringField(nullable=True),
+        'state': fields.StringField(nullable=True),
     }
 
     @staticmethod
     def _from_db_object(sow, db_sow):
         """Converts a database entity to a formal object."""
+        foreign_key = ['category', 'dormitory', 'source', 'state']
         for field in sow.fields:
-            sow[field] = db_sow[field]
+            if field not in foreign_key:
+                sow[field] = db_sow[field]
+            elif field == 'category' and db_sow.category:
+                sow[field] = db_sow.category.name
+            elif field == 'dormitory' and db_sow.dormitory:
+                sow[field] = db_sow.dormitory.name
+            elif field == 'source' and db_sow.source:
+                sow[field] = db_sow.source.name
+            elif field == 'state' and db_sow.state:
+                sow[field] = db_sow.state.name
         sow.obj_reset_changes()
         return sow
 

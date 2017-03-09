@@ -104,10 +104,18 @@ class Sow(Base, Pig_manageBase):
     updated_at = Column('updated_at', DateTime)
     deleted_at = Column('deleted_at', DateTime)
 
-    category = relationship('Category')
-    dormitory = relationship('Dormitory')
-    source = relationship('Source')
-    state = relationship('State')
+    category = orm.relationship(Category, foreign_keys=category_id,
+            primaryjoin='Sow.category_id == Category.id')
+    dormitory = orm.relationship(Dormitory, foreign_keys=dormitory_id,
+            primaryjoin='Sow.dormitory_id == Dormitory.id')
+    source = orm.relationship(Source, foreign_keys=source_id,
+            primaryjoin='Sow.source_id == Source.id')
+    state = orm.relationship(State, foreign_keys=state_id,
+            primaryjoin='Sow.state_id == State.id')
+    #category = relationship('Category')
+    #dormitory = relationship('Dormitory')
+    #source = relationship('Source')
+    #state = relationship('State')
 
 
 class Boar(Base, Pig_manageBase):

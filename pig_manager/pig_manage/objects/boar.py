@@ -44,11 +44,11 @@ class Boar(base.BaseObject):
         for field in boar.fields:
             if field not in foreign_key:
                 boar[field] = db_boar[field]
-            if field == 'category' and db_boar.category:
+            elif field == 'category' and db_boar.category:
                 boar[field] = db_boar.category.name
-            if field == 'dormitory' and db_boar.dormitory:
+            elif field == 'dormitory' and db_boar.dormitory:
                 boar[field] = db_boar.dormitory.name
-            if field == 'source' and db_boar.source:
+            elif field == 'source' and db_boar.source:
                 boar[field] = db_boar.source.name
         boar.obj_reset_changes()
         return boar

@@ -38,6 +38,15 @@ class SowsController(rest.RestController):
         #sow['created_at'] = db_sow.created_at
         #sow['updated_at'] = db_sow.updated_at
         
+        if 'category' in db_sow.keys():
+            sow['category'] = db_sow.category
+        if 'dormitory' in db_sow.keys():
+            sow['dormitory'] = db_sow.dormitory
+        if 'source' in db_sow.keys():
+            sow['source'] = db_sow.source
+        if 'state' in db_sow.keys():
+            sow['state'] = db_sow.state
+
         return sow
 
     # disable the useful but fake interface
