@@ -1,4 +1,4 @@
-package com.ustcerqiu.pigdoc;
+﻿package com.ustcerqiu.pigdoc;
 
 import android.content.Context;
 import android.os.Parcel;
@@ -18,9 +18,6 @@ import java.util.List;
  * 此方法用以纪录全局通用的方法和类；一半不会实例化
  *
  */
-
-
-
 
 public class mCom {
     //属性定义区
