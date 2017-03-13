@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryDark">#00796B</color>
+    <color name="colorPrimary">#009688</color>
+    <color name="colorAccent">#FF5252</color>
+    <color name="colorAccent1">#e68901</color>
+    <color name="colorPrimaryLight">#B2DFDB</color>
+    <color name="colorPrimary_text">#212121</color>
+    <color name="colorSecondary_text">#757575</color>
+    <color name="color_icons">#FFFFFF</color>
+    <color name="color_divider">#BDBDBD</color>
+    <color name="color_bg">#ededed</color>
+    <color name="navigator_bg">#e9ffffff</color>
+    <color name="navigator_selected">#00bfa5</color>
+    <color name="navigator_unselected">#acabab</color>
+
+    <color name="bg_pressed_color">#99cad3c7</color>
+    <color name="bg_unpressed_color">#00000000</color>
+    <color name="bg_unpressed_white">#FFF</color>
+
+    <color name="no_bg">#00000000</color>
+    <color name="reminder_bg">#e7f9f215</color>
+    <color name="warning_bg">#d2ff0000</color>
+
+
+    <!--
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="primary">#009688</color>
+    <color name="primary_dark">#00796B</color>
+    <color name="primary_light">#B2DFDB</color>
+    <color name="accent">#FFC107</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+    -->
+    <!--
+  <color name="primary">#3F51B5</color>
+  <color name="primary_dark">#303F9F</color>
+  <color name="primary_light">#C5CAE9</color>
+  <color name="accent">#FF4081</color>
+  <color name="primary_text">#212121</color>
+  <color name="secondary_text">#757575</color>
+  <color name="icons">#FFFFFF</color>
+  <color name="divider">#BDBDBD</color>
+    -->
+</resources>

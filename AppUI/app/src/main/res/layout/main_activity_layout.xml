@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ustcerqiu.pigdoc.MainActivity"
+    android:id="@+id/main_activity_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+<!-- 标题栏部分 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_bar_height"
+        android:orientation="horizontal"
+        style="@style/TitleStyle.Left"  >
+
+        <!--人头布局的层叠效果，出现圆头图，主背景为dark色-->
+        <FrameLayout
+            android:layout_width="@dimen/user_pic_size"
+            android:layout_height="@dimen/user_pic_size"
+            android:layout_marginLeft="16dp">
+            <ImageView
+                android:id="@+id/user_pic_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/kkwang"/> <!--user_img-->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/user_pic_cover"/> <!--user_img_cover-->
+            <TextView
+                android:id="@+id/user_level"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorAccent"
+                android:gravity="right|bottom"
+                android:textSize="@dimen/small_text"
+                android:textStyle="bold|italic"
+                android:text="@string/user_level"/>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="6dp">
+            <TextView
+                android:id="@+id/text_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_icons"
+                android:textSize="@dimen/normal_text"
+                android:text="@string/user_name"/>
+            <TextView
+                android:id="@+id/text_user_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryLight"
+                android:textSize="@dimen/small_text"
+                android:text="@string/user_account"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_user_department"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="right|center"
+            android:textSize="@dimen/small_text"
+            android:textColor="@color/colorPrimaryLight"
+            android:text="@string/user_department" />
+    </LinearLayout>
+
+    <!--中间内容部分-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/main_bg">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <!--顶部分割线，白色半透明-->
+            <View android:background="#77FFFFFF" android:layout_marginLeft="16dp" android:layout_marginRight="16dp" android:layout_width="match_parent" android:layout_height="1px"  />
+
+            <!--6个集中显示的状态条-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_margin="6dp"  >
+
+                <!--几个集中显示的状态 1/6-->
+                <LinearLayout android:id="@+id/main_status_1"
+                    style="@style/BgPressed.MainStatus_LinearLayout">
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status_name_1"/>
+                    <ImageView android:id="@+id/main_rate_1"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="3dp"
+                        android:src="@drawable/rate_unclip"
+                        android:background="@drawable/rate_clip" />
+                    <TextView android:id="@+id/main_rate_percent_1"
+                        android:layout_width="45dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorAccent1"/>
+                    <TextView android:id="@+id/main_rate_text_1"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"/>
+                </LinearLayout>
+                <!--几个集中显示的状态 2/6-->
+                <LinearLayout android:id="@+id/main_status_2"
+                    style="@style/BgPressed.MainStatus_LinearLayout">
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status_name_2"/>
+                    <ImageView android:id="@+id/main_rate_2"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="3dp"
+                        android:src="@drawable/rate_unclip"
+                        android:background="@drawable/rate_clip" />
+                    <TextView android:id="@+id/main_rate_percent_2"
+                        android:layout_width="45dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorAccent1"/>
+                    <TextView android:id="@+id/main_rate_text_2"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right" />
+                </LinearLayout>
+                <!--几个集中显示的状态 3/6-->
+                <LinearLayout android:id="@+id/main_status_3"
+                    style="@style/BgPressed.MainStatus_LinearLayout">
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status_name_3"/>
+                    <ImageView android:id="@+id/main_rate_3"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="3dp"
+                        android:src="@drawable/rate_unclip"
+                        android:background="@drawable/rate_clip" />
+                    <TextView android:id="@+id/main_rate_percent_3"
+                        android:layout_width="45dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorAccent1"/>
+                    <TextView android:id="@+id/main_rate_text_3"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right" />
+                </LinearLayout>
+                <!--几个集中显示的状态 4/6-->
+                <LinearLayout android:id="@+id/main_status_4"
+                    style="@style/BgPressed.MainStatus_LinearLayout">
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status_name_4"/>
+                    <ImageView android:id="@+id/main_rate_4"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="3dp"
+                        android:src="@drawable/rate_unclip"
+                        android:background="@drawable/rate_clip" />
+                    <TextView android:id="@+id/main_rate_percent_4"
+                        android:layout_width="45dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorAccent1"/>
+                    <TextView android:id="@+id/main_rate_text_4"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right" />
+                </LinearLayout>
+                <!--几个集中显示的状态 5/6-->
+                <LinearLayout android:id="@+id/main_status_5"
+                    style="@style/BgPressed.MainStatus_LinearLayout">
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status_name_5"/>
+                    <ImageView android:id="@+id/main_rate_5"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="3dp"
+                        android:src="@drawable/rate_unclip"
+                        android:background="@drawable/rate_clip" />
+                    <TextView android:id="@+id/main_rate_percent_5"
+                        android:layout_width="45dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorAccent1"/>
+                    <TextView android:id="@+id/main_rate_text_5"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right" />
+                </LinearLayout>
+                <!--几个集中显示的状态 6/6-->
+                <LinearLayout android:id="@+id/main_status_6"
+                    style="@style/BgPressed.MainStatus_LinearLayout">
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status_name_6"/>
+                    <ImageView android:id="@+id/main_rate_6"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="3dp"
+                        android:src="@drawable/rate_unclip"
+                        android:background="@drawable/rate_clip" />
+                    <TextView android:id="@+id/main_rate_percent_6"
+                        android:layout_width="45dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorAccent1"/>
+                    <TextView android:id="@+id/main_rate_text_6"
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--中部分割线，白色半透明-->
+            <View android:background="#88FFFFFF"  android:layout_marginLeft="16dp" android:layout_marginRight="16dp" android:layout_width="match_parent" android:layout_height="1px"  />
+
+            <!--常用主功能模块  图块-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_div"
+                android:gravity="center">
+                <!--常用功能按钮 4 个-->
+                <LinearLayout   android:id="@+id/main_icon_daily_report"
+                    style="@style/BgPressed.MainCommon_LinearLayout">
+
+                    <ImageView
+                        style="@style/MainCommon_LinearLayout_ImageView"
+                        android:src="@drawable/daily_report"
+                        android:id="@+id/imageView" />
+
+                    <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/daily_report"/>
+            </LinearLayout>
+                <LinearLayout android:id="@+id/main_icon_pig_statistics"
+                    style="@style/BgPressed.MainCommon_LinearLayout">
+                    <ImageView
+                        style="@style/MainCommon_LinearLayout_ImageView"
+                        android:src="@drawable/pig_statistics"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pig_statistics"/>
+                </LinearLayout>
+                <LinearLayout android:id="@+id/main_icon_data_view"
+                    style="@style/BgPressed.MainCommon_LinearLayout">
+                    <ImageView
+                        style="@style/MainCommon_LinearLayout_ImageView"
+                        android:src="@drawable/data_view"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/data_view"/>
+                </LinearLayout>
+                <LinearLayout  android:id="@+id/main_icon_settings"
+                    style="@style/BgPressed.MainCommon_LinearLayout">
+                    <ImageView
+                        style="@style/MainCommon_LinearLayout_ImageView"
+                        android:src="@drawable/settings"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!--数据加入图块-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="22dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_div">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/input_data"
+                    android:textSize="@dimen/normal_text"
+                    android:textColor="@color/colorPrimary_text"/>
+                <View android:background="#88000000"  android:layout_marginTop="3dp" android:layout_width="match_parent" android:layout_height="1px"  />
+                <!--第一行功能按钮-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <!--1行功能按钮 5 个-->
+                    <LinearLayout  android:id="@+id/main_data_input0"
+                        style="@style/BgPressed.MainInputData_LinearLayout">
+                        <ImageView
+                            style="@style/MainInputData_LinearLayout_ImageView"
+                            android:src="@drawable/prevention"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/input_data_0"/>
+                    </LinearLayout>
+                    <LinearLayout  android:id="@+id/main_data_input1"
+                        style="@style/BgPressed.MainInputData_LinearLayout">
+                        <ImageView
+                            style="@style/MainInputData_LinearLayout_ImageView"
+                            android:src="@drawable/add_house"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/input_data_1"/>
+                    </LinearLayout>
+                    <LinearLayout  android:id="@+id/main_data_input2"
+                        style="@style/BgPressed.MainInputData_LinearLayout">
+                        <ImageView
+                            style="@style/MainInputData_LinearLayout_ImageView"
+                            android:src="@drawable/add_pig"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/input_data_2"/>
+                    </LinearLayout>
+                    <LinearLayout  android:id="@+id/main_data_input3"
+                        style="@style/BgPressed.MainInputData_LinearLayout">
+                        <ImageView
+                            style="@style/MainInputData_LinearLayout_ImageView"
+                            android:src="@drawable/add_sperm"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/input_data_3"/>
+                    </LinearLayout>
+                    <LinearLayout  android:id="@+id/main_data_input4"
+                        style="@style/BgPressed.MainInputData_LinearLayout">
+                        <ImageView
+                            style="@style/MainInputData_LinearLayout_ImageView"
+                            android:src="@drawable/oestrus"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/input_data_4"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <!--第二行功能按钮-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    <!--2行功能按钮 5 个-->
+                    <LinearLayout  android:id="@+id/main_data_input5"
+                        style="@style/BgPressed.MainInputData_LinearLayout">
+                        <ImageView
+                            style="@style/MainInputData_LinearLayout_ImageView"
+                            android:src="@drawable/hibridization"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/input_data_5"/>
+                    </LinearLayout>
+                    <LinearLayout  android:id="@+id/main_data_input6"
+                        style="@style/BgPressed.MainInputData_LinearLayout">
+                        <ImageView
+                            style="@style/MainInputData_LinearLayout_ImageView"
+                            android:src="@drawable/pregnancy_test"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/input_data_6"/>
+                    </LinearLayout>
+                    <LinearLayout  android:id="@+id/main_data_input7"
+                        style="@style/BgPressed.MainInputData_LinearLayout">
+                        <ImageView
+                            style="@style/MainInputData_LinearLayout_ImageView"
+                            android:src="@drawable/parturition"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/input_data_7"/>
+                    </LinearLayout>
+                    <LinearLayout  android:id="@+id/main_data_input8"
+                        style="@style/BgPressed.MainInputData_LinearLayout">
+                        <ImageView
+                            style="@style/MainInputData_LinearLayout_ImageView"
+                            android:src="@drawable/ablactation"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/input_data_8"/>
+                    </LinearLayout>
+                    <LinearLayout  android:id="@+id/main_data_input10"
+                        style="@style/BgPressed.MainInputData_LinearLayout">
+                        <ImageView
+                            style="@style/MainInputData_LinearLayout_ImageView"
+                            android:src="@drawable/all"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/input_data_all"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+    <!--底部导航栏的状态-->
+    <include layout="@layout/navigator_bottom"/>
+</LinearLayout>

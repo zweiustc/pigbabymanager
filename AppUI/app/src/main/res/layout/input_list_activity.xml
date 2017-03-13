@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ustcerqiu.pigdoc.MainActivity"
+    android:id="@+id/main_activity_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/main2_bg">
+
+    <!--插入标题栏2-->
+    <include layout="@layout/title_2"/>
+
+    <!-- 中间内容部分框架 -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/input_list_RecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="6dp">
+    </android.support.v7.widget.RecyclerView>
+
+    <!--无底部导航栏的状态-->
+</LinearLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ustcerqiu.pigdoc.MainActivity"
+    android:id="@+id/main_activity_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/main2_bg">
+    <!-- 标题栏 -->
+    <TextView
+        android:id="@+id/title_bar"
+        style="@style/TitleStyle"
+        android:text="趋势与状态诊断"
+        />
+
+    <!-- 中间内容部分框架 -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/chart_list_RecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="6dp">
+    </android.support.v7.widget.RecyclerView>
+
+
+    <!--底部导航栏的状态-->
+    <include layout="@layout/navigator_bottom"/>
+</LinearLayout>

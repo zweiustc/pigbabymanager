@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_linearLayout"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:background="@drawable/item_selector"
+    android:clickable="true"
+    android:layout_marginTop="1dp"
+    android:layout_marginBottom="1dp"
+    android:gravity="left|center">
+
+    <ImageView android:id="@+id/item_image"
+        android:layout_marginLeft="6dp"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:src="@drawable/add_pig"/>
+
+    <TextView android:id="@+id/item_name"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:textSize="@dimen/normal_text"
+        android:textColor="@color/colorPrimary_text"
+        android:text="test数据" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/forward_gray"/>
+
+    <!--标记功能类型，用以调用时候使用不同的intent方法; 其实没必要写入布局，直接读原始数据更快-->
+    <!--
+    <TextView android:id="@+id/item_func_type"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+-->
+    <!--标记功能可选参数，用以调用时候传入活动的备选参数--><!--
+    <TextView android:id="@+id/item_func_param"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+-->
+
+</LinearLayout>

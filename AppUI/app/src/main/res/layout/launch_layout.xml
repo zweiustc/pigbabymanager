@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ustcerqiu.pigdoc.LaunchActivity"
+
+    android:id="@+id/launch_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/launch_bg">
+
+    <TextView
+        android:id="@+id/launch_text1_catchword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/catchword_1"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"
+        android:textColor="#FF5722"
+        android:layout_marginBottom="120dp"/>
+    <TextView
+        android:id="@+id/launch_text2_catchword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/catchword_2"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:textColor="#7C4DFF"
+        android:layout_marginBottom="90dp"/>
+    <TextView
+        android:id="@+id/launch_text3_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/time_count"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginBottom="60dp"/>
+</RelativeLayout>

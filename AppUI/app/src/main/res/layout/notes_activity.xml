@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_activity_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_bg">
+<!-- 标题栏  用以存放天气条-->
+    <LinearLayout android:id="@+id/weather_title_bar"
+        android:orientation="horizontal"
+        style="@style/TitleStyle"
+        android:layout_height="60dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/color_icons"
+            android:text="Weather Title Bar"/>
+
+    </LinearLayout>
+
+<!-- 中间内容部分框架 -->
+    <!--控制条：天气选择与进入详情的页面-->
+    <!--TODO-->
+    <!--控制条：日期选择控制-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary">
+        <TextView android:id="@+id/previous_day_button"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/small_text"
+            android:textColor="@color/color_icons"
+            android:background="#22FFFFFF"
+            android:gravity="center"
+            android:text="前一天"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <LinearLayout      android:id="@+id/date_change_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:background="@drawable/bg_selector"
+                android:clickable="true">
+                <TextView           android:id="@+id/date_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/color_icons"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:text="2017-3-13 周一"/>
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_marginLeft="6dp"
+                    android:src="@drawable/pencil2_w"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView android:id="@+id/next_day_button"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/small_text"
+            android:textColor="@color/color_icons"
+            android:background="#22FFFFFF"
+            android:gravity="center"
+            android:text="后一天"/>
+
+    </LinearLayout>
+
+    <!--列表 标题栏 24dp 6dp weight1 60dp 60dp 60dp -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="26dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="1px"
+        android:background="@color/color_divider">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="left|center"
+            android:textColor="@color/colorPrimary_text"
+            android:textSize="@dimen/small_text"
+            android:paddingLeft="30dp"
+            android:text="名  称"/>
+
+        <TextView
+            android:layout_width="66dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary_text"
+            android:textSize="@dimen/small_text"
+            android:text="日报数"/>
+
+        <TextView
+            android:layout_width="66dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary_text"
+            android:textSize="@dimen/small_text"
+            android:text="提醒数"/>
+
+        <TextView
+            android:layout_width="66dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary_text"
+            android:textSize="@dimen/small_text"
+            android:text="报警数"/>
+
+    </LinearLayout>
+
+
+    <!--内部条目所对应的滚动框-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/note_list_RecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingTop="1dp"
+        android:paddingBottom="6dp">
+    </android.support.v7.widget.RecyclerView>
+
+<!--底部导航栏的状态-->
+    <include layout="@layout/navigator_bottom"/>
+</LinearLayout>

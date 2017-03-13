@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">猪博士</string>
+    <!--启动页面launch-->
+    <string name="catchword_1">博士给您当秘书</string>
+    <string name="catchword_2">7x24h的养殖专业助手，养猪从未如此简单！</string>
+    <string name="log_page_title">猪博士</string>
+    <string name="time_count">0</string>
+    <!--登陆页面login-->
+    <string name="prompt_email">账号：电话号码</string>
+    <string name="prompt_password">密码 </string>
+    <string name="action_sign_in">登 &#160; 陆</string>
+    <string name="action_sign_in_short">登陆</string>
+    <string name="register">没有账号？点击注册</string>
+    <string name="forget_password">忘记密码</string>
+
+    <!--底部导航栏相关文字-->
+    <string name="navigator_1">信息</string>
+    <string name="navigator_2">提醒</string>
+    <string name="navigator_0">主页</string>
+    <string name="navigator_3">报表</string>
+    <string name="navigator_4">趋势</string>
+
+    <!--主页用户头像部分-->
+    <string name="user_name">王二晶晶</string>
+    <string name="user_account">188*****999   ></string>
+    <string name="user_level">lv.5</string>
+    <string name="user_department">Mr.Rich 集团\n湖北襄阳分公司\n宜城板桥猪厂\n1号猪舍管理员</string>
+    <!--主页 用总状态部分-->
+    <string name="status_name_1">猪舍使用率</string>
+    <string name="status_name_2">成年母猪率</string>
+    <string name="status_name_3">七日配种率</string>
+    <string name="status_name_4">当月分娩率</string>
+    <string name="status_name_5">窝均合格率</string>
+    <string name="status_name_6">窝均有效仔</string>
+    <!--主页 常用功能 部分-->
+    <string name="daily_report">养猪日报</string>
+    <string name="pig_statistics">存栏状态</string>
+    <string name="data_view">档案查看</string>
+    <string name="settings">参数设置</string>
+    <!--主页 数据录入 部分-->
+    <string name="input_data">操作与数据录入</string>
+    <string name="input_data_0">防疫管理</string>
+    <string name="input_data_1">添加猪舍</string>
+    <string name="input_data_2">添加种猪</string>
+    <string name="input_data_3">人工采精</string>
+    <string name="input_data_4">母猪发情</string>
+    <string name="input_data_5">母猪配种</string>
+    <string name="input_data_6">母猪孕检</string>
+    <string name="input_data_7">母猪分娩</string>
+    <string name="input_data_8">小猪断奶</string>
+    <string name="input_data_9">小猪出售</string>
+    <string name="input_data_all">全部</string>
+
+    <!--生产报表页  部分-->
+    <string name="report_title">生产报表</string>
+
+
+
+
+    
+
+    <!--数据于操作导入的全部功能列表页-->
+    <string name="input_all_list_title">猪博士 -- 操作与数据录入</string>
+
+
+</resources>

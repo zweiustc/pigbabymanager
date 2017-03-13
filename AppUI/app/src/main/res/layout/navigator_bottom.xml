@@ -1,0 +1,96 @@
+<!--底部导航栏的状态-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ustcerqiu.pigdoc.MainActivity"
+    android:id="@+id/navigator_bar_bottom"
+    style="@style/NavigatorBar" >
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorSecondary_text"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="@color/navigator_bg"
+        android:gravity="center">
+
+        <!--底部导航项目-->
+        <LinearLayout android:id="@+id/navigator_b1_message"
+            style="@style/NavigatorBarItem">
+            <ImageView android:id="@+id/nav_b1_image"
+                android:layout_width="@dimen/navigator_img"
+                android:layout_height="@dimen/navigator_img"
+                android:src="@drawable/ic_messag"/>
+            <TextView android:id="@+id/nav_b1_text"
+                android:layout_marginTop="@dimen/margin_img_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/navigator_unselected"
+                android:textSize="@dimen/small_text"
+                android:text="@string/navigator_1"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/navigator_b2_notes"
+            style="@style/NavigatorBarItem">
+            <ImageView android:id="@+id/nav_b2_image"
+                android:layout_width="@dimen/navigator_img"
+                android:layout_height="@dimen/navigator_img"
+                android:src="@drawable/ic_notes"/>
+            <TextView android:id="@+id/nav_b2_text"
+                android:layout_marginTop="@dimen/margin_img_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/navigator_unselected"
+                android:textSize="@dimen/small_text"
+                android:text="@string/navigator_2"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/navigator_b0_home"
+            style="@style/NavigatorBarItem">
+            <ImageView android:id="@+id/nav_b0_image"
+                android:layout_width="@dimen/navigator_img"
+                android:layout_height="@dimen/navigator_img"
+                android:src="@drawable/ic_home"/>
+            <TextView android:id="@+id/nav_b0_text"
+                android:layout_marginTop="@dimen/margin_img_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/navigator_unselected"
+                android:textSize="@dimen/small_text"
+                android:text="@string/navigator_0"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/navigator_b3_status"
+            style="@style/NavigatorBarItem">
+            <ImageView android:id="@+id/nav_b3_image"
+                android:layout_width="@dimen/navigator_img"
+                android:layout_height="@dimen/navigator_img"
+                android:src="@drawable/ic_status"/>
+            <TextView android:id="@+id/nav_b3_text"
+                android:layout_marginTop="@dimen/margin_img_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/navigator_unselected"
+                android:textSize="@dimen/small_text"
+                android:text="@string/navigator_3"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/navigator_b4_chart"
+            style="@style/NavigatorBarItem" >
+            <ImageView android:id="@+id/nav_b4_image"
+                android:layout_width="@dimen/navigator_img"
+                android:layout_height="@dimen/navigator_img"
+                android:src="@drawable/ic_chart"/>
+            <TextView android:id="@+id/nav_b4_text"
+                android:layout_marginTop="@dimen/margin_img_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/navigator_unselected"
+                android:textSize="@dimen/small_text"
+                android:text="@string/navigator_4"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

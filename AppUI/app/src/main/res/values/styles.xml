@@ -1,0 +1,159 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- 设置主题色 -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- 设置主字体 -->
+        <item name="android:textSize">@dimen/small_text</item>
+        <item name="android:textColorPrimary">@color/colorPrimary_text</item>
+        <item name="android:textColorSecondary">@color/colorSecondary_text</item>
+        <!-- 将状态栏透明处理，color为透明色，应对5.0系统上的默认半透明覆盖层,不占用位置 -->
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:statusBarColor">#00000000</item>
+        <!-- 标题栏采用AppBarLayout相应新功能实现，不再考虑用默认的title栏了，此处，我们采用沉浸式标题栏，得去掉标题栏 -->
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <!--下面代码4.4系统不支持，需要5以上系统)
+        <item name="actionBarStyle">@style/MyActionBar</item>  -->
+        <!--控制屏幕旋转，禁止旋转，固定为竖立显示, 发现没效果啊,需要放到activity中-->
+        <item name="android:screenOrientation">portrait</item>
+        <!--帮当屏幕切换动画-->  <!--
+        <item name="android:windowAnimationStyle">@style/ActivityInOutAnimation</item>    -->
+
+    </style>
+
+    <!--定义全屏显示-->
+    <style name="AppTheme.Fullscreen">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <!--定义屏幕切换动画-->
+    <!-- 窗口和动画进入和退出动画都有 singleinstant模式的活动效果不对，主要是活动栈的问题，此时可用window的进出动画 -->
+    <!--打开活动中，进入的活动的动画--><!--打开活动中，退出的活动的动画--><!--关闭活动中，进入的新活动的动画--><!--关闭活动中，退出的活动的动画-->
+    <style name="ActivityInOutAnimation" parent="@android:style/Animation.Activity"> <!--
+        <item name="android:activityOpenEnterAnimation">@anim/translate_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/translate_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/translate_in_back</item>
+        <item name="android:activityCloseExitAnimation">@anim/translate_out_back</item>  -->
+        <!-- 下面两行代码会导致所有窗口内容变化的动作，activity进出就有窗口变化的动画，与上冲突-->
+        <!-- <item name="android:windowEnterAnimation">@anim/rotate_in</item>  --><!--切换窗口中，进入的窗口的动画-->
+        <!-- <item name="android:windowExitAnimation">@anim/rotate_out</item>  --><!--切换窗口中，退出的活动的动画-->
+
+    </style>
+
+    <!--定义title行的样式表 LinearLayout-->
+    <style name="TitleStyle">
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:layout_height">72dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/large_text</item>
+        <item name="android:textColor">@color/color_icons</item>
+    </style>
+    <style name="TitleStyle.Left">
+        <item name="android:gravity">left|center</item>
+    </style>
+
+    <!--定义第二title行的样式表-->
+    <style name="TitleStyle2">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">@dimen/large_text</item>
+        <item name="android:textColor">@color/color_icons</item>
+    </style>
+
+    <!--底部导航栏的整体style和 item style-->
+    <style name="NavigatorBar">
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:background">#00000000</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_height">@dimen/navigator_bar_height</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+    <style name="NavigatorBarItem">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">5dp</item>
+        <!--下面设置layout监听点击事件，避免被内部事件截取， 不带下面两行，并不影响给layout添加点击事件，
+        但会不会被里面的button抢掉click就不知道了，好在此处场合里面并无可吸收click的控件-->
+        <item name="android:clickable">true</item>
+        <item name="android:onClick">onClick</item>
+    </style>
+
+
+    <!--定义layout view等的点击背景切换效果，针对透明背景的layout按钮, 可通过继承关系来简化代码-->
+    <style name="BgPressed">
+        <item name="android:clickable">true</item>
+        <item name="android:background">@drawable/bg_selector</item>
+    </style>
+
+    <!--主页上，状态条上的layout样式，是应用于LinearLayout上的-->
+    <style name="BgPressed.MainStatus_LinearLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">32dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">left|center</item>
+    </style>
+    <!--主页上，常用功能按钮的样式，是应用于LinearLayout上的-->
+    <style name="BgPressed.MainCommon_LinearLayout">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="MainCommon_LinearLayout_ImageView">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+    </style>
+    <!--主页上，数据输入的功能按钮，是应用于LinearLayout上的-->
+    <style name="BgPressed.MainInputData_LinearLayout">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="MainInputData_LinearLayout_ImageView">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+    </style>
+
+
+    <!--提醒和日报功能列表中，对于不同数目的字体和背景颜色控制-->
+    <style name="note_report_zero">
+        <item name="android:textColor">#1c020202</item>
+    </style>
+
+    <style name="note_report">
+        <item name="android:textColor">@color/colorPrimary_text</item>
+    </style>
+
+    <style name="note_reminder_zero">
+        <item name="android:textColor">#1c020202</item>
+    </style>
+
+    <style name="note_reminder">
+        <item name="android:textColor">@color/colorPrimary_text</item>
+        <item name="android:background">#e7f9f215</item>
+    </style>
+
+    <style name="note_warning_zero">
+        <item name="android:textColor">#1c020202</item>
+    </style>
+
+    <style name="note_warning">
+        <item name="android:textColor">@color/colorPrimary_text</item>
+        <item name="android:background">#d2ff0000</item>
+    </style>
+
+</resources>

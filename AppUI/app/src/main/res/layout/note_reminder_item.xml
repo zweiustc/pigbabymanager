@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="1px">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:background="#fff"
+        android:gravity="left|center">
+
+        <TextView android:id="@+id/note_mark"
+            android:layout_width="24dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="@dimen/normal_text"
+            android:textColor="@color/colorAccent"
+            android:text="X"/>
+
+        <TextView android:id="@+id/note_item_name"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="left|center"
+            android:paddingLeft="6dp"
+            android:textSize="@dimen/normal_text"
+            android:textColor="#035a82"
+            android:text="no name"/>
+
+        <TextView android:id="@+id/note_report_num"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:gravity="center"
+            android:textSize="@dimen/normal_text"
+            style="@style/note_report_zero" />
+
+        <TextView android:id="@+id/note_reminder_num"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:textSize="@dimen/normal_text"
+            style="@style/note_reminder_zero" />
+
+        <TextView android:id="@+id/note_warning_num"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:gravity="center"
+            android:textSize="@dimen/normal_text"
+            android:textColor="@color/colorPrimary_text"
+            style="@style/note_warning_zero" />
+    </LinearLayout>
+
+    <View
+        android:layout_marginTop="1px"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#B2DFDB"/>
+</LinearLayout>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--定义主页的 输入框全部功能列表所对应的图片资源，名称等数组-->
+    <string-array name="input_func_images">
+        <item>@drawable/prevention</item>
+        <item>@drawable/add_house</item>
+        <item>@drawable/add_pig</item>
+        <item>@drawable/add_sperm</item>
+        <item>@drawable/oestrus</item> <!-- 5 -->
+        <item>@drawable/hibridization</item>
+        <item>@drawable/pregnancy_test</item>
+        <item>@drawable/parturition</item>
+        <item>@drawable/ablactation</item>
+        <item>@drawable/common</item> <!-- 10 -->
+        <item>@drawable/common</item>
+        <item>@drawable/common</item>
+        <item>@drawable/common</item>
+        <item>@drawable/ic_home_s</item>
+        <!-- 此行第 15 -->
+    </string-array>
+
+    <!--定义主页的输入框全部功能列表所对应的 名称资源 ，与图片资源需要对应，尤其大小一致，顺序相同-->
+    <string-array name="input_func_names">
+        <item>免疫与防疫管理</item>
+        <item>添加种猪新猪舍</item>
+        <item>添加新种猪</item>
+        <item>采精数据录入</item>
+        <item>母猪发情数据录入</item><!-- 5 -->
+        <item>母猪配种数据录入</item>
+        <item>母猪孕检数据录入</item>
+        <item>母猪分娩数据录入</item>
+        <item>小猪断奶数据录入</item>
+        <item>死淘数据录入</item><!-- 10 -->
+        <item>母猪衰老淘汰录入</item>
+        <item>小猪出圈数据录入</item>
+        <item>添加小猪猪舍</item>
+        <item>添加公司组织构架</item>
+        <!-- 此行第 15 -->
+    </string-array>
+
+    <!--定义input_func_name 列表所对应的在detail_func_type_array中的索引值,-->
+    <integer-array name="input_func_indexes">
+        <item>0</item>  <item>1</item>  <item>2</item>  <item>3</item>  <item>4</item><!-- 5 -->
+        <item>5</item>   <item>1</item>  <item>2</item>  <item>3</item>  <item>4</item><!-- 10 -->
+        <item>5</item>   <item>1</item>  <item>2</item>  <item>3</item>  <!-- 此行第 15 -->
+    </integer-array>
+
+    <!--定义inputFunc detail func 的类型，作为功能选择的 case 依据， 每一种代表一种页面的处理方式-->
+    <string-array name="detai_func_type_array">
+        <item >func_prevention</item>
+        <item>func_01</item>
+        <item>func_02</item>
+        <item>func_03</item>
+        <item>func_04</item>
+        <item>func_05</item>
+    </string-array>
+
+
+
+
+    <!--定义 通用 com 的 detail func 的类型，作为功能选择的 case 依据， 每一种代表一种页面的处理方式-->
+    <string-array name="com_detail_func_types">
+        <item >no_func</item>
+        <item>com_func_01</item>
+        <item>com_func_02</item>
+        <item>com_func_03</item>
+        <item>com_func_04</item>
+        <item>com_func_05</item>
+    </string-array>
+
+    <!-- 报表页面的功能列表项目 项目名称, 此数组数目决定后面图标和功能选择所需的最小数目 -->
+    <string-array name="report_func_names">
+        <item>生产日报</item>
+        <item>周/月/年综合报表</item>
+        <item>猪舍使用情况报表</item>
+        <item>母猪实时状态</item>
+        <item>七日配种率报表</item>
+
+        <item>当月分娩率报表</item>
+        <item>窝均情况报表</item>
+        <item>母猪胎龄结构</item>
+        <item>种猪淘汰表</item>
+        <item>预计分娩数</item>
+
+        <item>公猪精液生产报表</item>
+        <item>公猪生产成绩表</item>
+        <item>配种进度表</item>
+        <item>分娩报表</item>
+        <item>断奶报表</item>
+    </string-array>
+    <!--定义 功能列表的图标；数目须与上面 report_func_names 相同-->
+    <string-array name="report_func_images">
+        <item>@drawable/add_house</item>
+        <item>@drawable/add_pig</item>
+        <item>@drawable/add_sperm</item>
+        <item>@drawable/oestrus</item>
+        <item>@drawable/hibridization</item>
+
+        <item>@drawable/pregnancy_test</item>
+        <item>@drawable/parturition</item>
+        <item>@drawable/ablactation</item>
+        <item>@drawable/common</item>
+        <item>@drawable/common</item>
+
+        <item>@drawable/common</item>
+        <item>@drawable/add_pig</item>
+        <item>@drawable/add_sperm</item>
+        <item>@drawable/oestrus</item>
+        <item>@drawable/hibridization</item> <!--  15 -->
+    </string-array>
+
+    <!--定义report_func_name 列表所对应的在detail_func_type_array中的索引值,-->
+    <integer-array name="report_func_indexes">
+        <item>0</item>  <item>1</item>  <item>2</item>  <item>3</item>  <item>4</item><!-- 5 -->
+        <item>5</item>   <item>1</item>  <item>2</item>  <item>3</item>  <item>4</item><!-- 10 -->
+        <item>5</item>   <item>1</item>  <item>2</item>  <item>3</item>  <item>3</item><!--  15 -->
+    </integer-array>
+
+
+    <!-- 报表页面的功能列表项目 项目名称, 此数组数目决定后面图标和功能选择所需的最小数目 -->
+    <string-array name="chart_func_names">
+        <item>猪舍使用趋势与预期</item>
+        <item>小猪出栏趋势与预期</item>
+        <item>母猪胎龄趋势与预期</item>
+        <item>母猪实时状态趋势与预期</item>
+        <item>分娩情况趋势与预期</item>
+
+        <item>防疫情况趋势与预期</item>
+        <item>种猪淘汰趋势与预期</item>
+        <item>小猪断奶趋势与预期</item>
+        <item>小猪出栏情况趋势与预期</item>
+        <item>配种趋势与预期</item>
+
+        <item>品种发育趋势及对比</item>
+        <item>市场趋势与预期</item>
+        <item>小猪出栏总价趋势与预期</item>
+    </string-array>
+    <!--定义 功能列表的图标；数目须与上面 report_func_names 相同-->
+    <string-array name="chart_func_images">
+        <item>@drawable/pregnancy_test</item>
+        <item>@drawable/parturition</item>
+        <item>@drawable/ablactation</item>
+        <item>@drawable/common</item>
+        <item>@drawable/add_sperm</item>
+
+        <item>@drawable/oestrus</item>
+        <item>@drawable/hibridization</item>
+        <item>@drawable/add_house</item>
+        <item>@drawable/common</item>
+        <item>@drawable/add_pig</item>
+
+        <item>@drawable/add_sperm</item>
+        <item>@drawable/oestrus</item>
+        <item>@drawable/hibridization</item> <!--  15 -->
+    </string-array>
+
+    <!--定义report_func_name 列表所对应的在 com_detail_func_types  中的索引值,-->
+    <integer-array name="chart_func_indexes">
+        <item>1</item>  <item>1</item>  <item>2</item>  <item>3</item>  <item>4</item><!-- 5 -->
+        <item>5</item>   <item>1</item>  <item>2</item>  <item>3</item>  <item>4</item><!-- 10 -->
+        <item>5</item>   <item>0</item>  <item>2</item>  <item>3</item>  <item>3</item><!--  15 -->
+    </integer-array>
+
+
+
+
+
+
+
+
+</resources>

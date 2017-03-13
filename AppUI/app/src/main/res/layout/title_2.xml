@@ -1,0 +1,23 @@
+<!-- 第二标题栏 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/TitleStyle"
+    android:orientation="horizontal">
+    <LinearLayout android:id="@+id/button_back"
+        style="@style/BgPressed"
+        android:layout_width="48dp"
+        android:layout_height="40dp"
+        android:paddingLeft="3dp"
+        android:gravity="left|center">
+        <ImageView
+            android:layout_marginTop="1dp"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:src="@drawable/back"/>
+    </LinearLayout>
+    <TextView android:id="@+id/title_name_textView"
+        style="@style/TitleStyle2"
+        android:text="@string/app_name"  />
+    <TextView
+        android:layout_width="48dp"
+        android:layout_height="match_parent" />
+</LinearLayout>

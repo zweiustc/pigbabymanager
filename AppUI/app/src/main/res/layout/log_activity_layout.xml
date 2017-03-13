@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <!--注册界面的标题栏，仅仅是个显示用的显示文字框-->
+    <TextView
+        android:id="@+id/log_text1_title"
+        style="@style/TitleStyle"
+        android:text="@string/log_page_title" />
+
+    <!--主内容区域-->
+    <LinearLayout
+        android:id="@+id/launch_layout_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/login_pg"
+        android:gravity="center_horizontal"
+        android:padding="16dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="12dp"
+            android:paddingTop="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="0dp"
+            android:background="@drawable/login_bg_div">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:id="@+id/phone_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/prompt_email"
+                    android:inputType="number"
+                    android:maxLines="1" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/prompt_password"
+                    android:imeActionId="@+id/login"
+                    android:imeActionLabel="@string/action_sign_in_short"
+                    android:imeOptions="actionUnspecified"
+                    android:inputType="numberPassword"
+                    android:maxLines="1"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/login_button1_signin"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/action_sign_in"
+                android:textStyle="bold"
+                android:textSize="@dimen/normal_text"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/login_button2_register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/register"
+                    android:textSize="@dimen/small_text"
+                    android:textColor="@color/colorAccent1"
+                    android:background="#00000000"
+                    android:gravity="start|center"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+                <Button
+                    android:id="@+id/login_button3_forget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/forget_password"
+                    android:textSize="@dimen/small_text"
+                    android:textColor="@color/colorAccent1"
+                    android:background="#00000000"
+                    android:gravity="end|center"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp" >
+            <TextView
+                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="left|center"
+                android:id="@+id/title_bar"
+                android:text="做您 \n\n7 x 24 小时的\n\n专业养殖小秘书！"
+                android:textSize="@dimen/large_text"
+                android:textColor="@color/colorPrimaryDark" />
+            <ImageView
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:src="@drawable/main_pic" />
+
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</LinearLayout>
