@@ -16,8 +16,11 @@ import java.util.List;
 /**
  * Created by ustcerQ on 2017/3/12.
  * 此方法用以纪录全局通用的方法和类；一半不会实例化
- * 
+ *
  */
+
+
+
 
 public class mCom {
     //属性定义区

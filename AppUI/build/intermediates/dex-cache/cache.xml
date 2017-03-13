@@ -3,12 +3,30 @@
 
     <item
         is-multidex="false"
+        jar="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.1.0_b78e6e0d7662fb1dfe5e970fa72fec44866de613.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\ustcer\Desktop\pigApp\PigDoc\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="2cb132049317e19884e0050b25848261eff73724">
         <dex dex="C:\Users\ustcer\Desktop\pigApp\PigDoc\app\build\intermediates\pre-dexed\debug\instant-run_d29afd723ad8da5c573b8ffce9dc69b09f7940df.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.1.0_52545d2a91952a9aca9841d0272a6ccb40ced3b4.jar" />
     </item>
     <item
         is-multidex="false"
@@ -36,6 +54,15 @@
         revision="25.0.2"
         sha1="d38084015027549951cbaea5d5f6fb795cc81151">
         <dex dex="C:\Users\ustcer\Desktop\pigApp\PigDoc\app\build\intermediates\pre-dexed\debug\com.android.support-transition-25.1.0_048f3e7feea6a17681ef90ec5a36b8777d463e20.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8b3e7737bbc6d850c3bec925ba7b98d993ae4fb5">
+        <dex dex="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_54d53e22632d758906f98b85715094d2aedf8f54.jar" />
     </item>
     <item
         is-multidex="false"
@@ -75,12 +102,39 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\exploded-aar\com.android.support\design\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
+        <dex dex="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\pre-dexed\debug\com.android.support-design-25.1.0_2e86ca8434e32215f1ed6f008671737d55799e03.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e1c152e4ce379d35f4b5e362df011fd25593e6c6">
+        <dex dex="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\pre-dexed\debug\instant-run_777624cd9c7f10e84fac01323f2c1fb6c1097721.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\ustcer\Desktop\pigApp\PigDoc\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
         <dex dex="C:\Users\ustcer\Desktop\pigApp\PigDoc\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.1.0_135f97e91c978a7c8dd332229cb2d8113fa512b3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
+        <dex dex="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\pre-dexed\debug\com.android.support-transition-25.1.0_83de1d00cc1e9c4911b44a0e7912565fad310106.jar" />
     </item>
     <item
         is-multidex="false"
@@ -93,12 +147,39 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.1.0_acafb736017065785785702a15df8d729f990f93.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.1.0_70f94dc6b2b03e9127e2c209549037163a5f7f51.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\ustcer\Desktop\pigApp\PigDoc\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
         <dex dex="C:\Users\ustcer\Desktop\pigApp\PigDoc\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.1.0_a87a5769697ba6ce676ebe31c02fa6c87ccc68ed.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.1.0_529ab66e9c818c7d33da1ff056bcf9f62f1fb064.jar" />
     </item>
     <item
         is-multidex="false"
@@ -120,12 +201,57 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-25.1.0_6bc9437a92b63a717ea5ff2cfe7094f5c41c7e6b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.1.0_b8c40be52ae9ee4a0a68f48d709d3837ee78d767.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.1.0_7bbb758f6081c3800fe7dbfb783064aa76443aae.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.1.0_e9bc1dc6de0061d948682897e791d589bcb43517.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\ustcer\Desktop\pigApp\PigDoc\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="aee64634871d88a419d59eb743c1258a60f19700">
         <dex dex="C:\Users\ustcer\Desktop\pigApp\PigDoc\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.1.0_dc244d78c2e2269a51ef64293a51c562db06373a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="C:\Users\ustcer\Desktop\pigBabyManager\pigbabymanager\AppUI\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.1.0_0e361388e7125d2e3dd3bb98d2350383b39fa2e9.jar" />
     </item>
     <item
         is-multidex="false"
