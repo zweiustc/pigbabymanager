@@ -68,3 +68,8 @@ class Connection(object):
     @abc.abstractmethod
     def delete_boar(cls, context, id):
         """delete boar info."""
+
+    @abc.abstractmethod
+    def get_parturition_record_list(cls, context, filters=None, limit=None,
+            marker=None, sort_key=None, sort_dir=None):
+        """return all parturition records in database."""

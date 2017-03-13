@@ -48,8 +48,13 @@ class Category(Base, Pig_manageBase):
     __table_args__ = (
         Index('category_id_idx', 'id'),
     )
-    id = Column(Integer, nullable=False, primary_key=True)
+    id = Column(BigInteger, nullable=False, primary_key=True)
     name = Column(String(36))
+
+    deleted = Column(BigInteger, default=0)
+    created_at = Column('created_at', DateTime)
+    updated_at = Column('updated_at', DateTime)
+    deleted_at = Column('deleted_at', DateTime)
     
 class Dormitory(Base, Pig_manageBase):
     """Represents dormitory in pig farm."""
@@ -57,8 +62,13 @@ class Dormitory(Base, Pig_manageBase):
     __table_args__ = (
         Index('dormitory_id_idx', 'id'),
     )
-    id = Column(Integer, nullable=False, primary_key=True)
+    id = Column(BigInteger, nullable=False, primary_key=True)
     name = Column(String(36))
+
+    deleted = Column(BigInteger, default=0)
+    created_at = Column('created_at', DateTime)
+    updated_at = Column('updated_at', DateTime)
+    deleted_at = Column('deleted_at', DateTime)
 
 class Source(Base, Pig_manageBase):
     """Represents source in pig farm."""
@@ -66,8 +76,13 @@ class Source(Base, Pig_manageBase):
     __table_args__ = (
         Index('source_id_idx', 'id'),
     )
-    id = Column(Integer, nullable=False, primary_key=True)
+    id = Column(BigInteger, nullable=False, primary_key=True)
     name = Column(String(36))
+
+    deleted = Column(BigInteger, default=0)
+    created_at = Column('created_at', DateTime)
+    updated_at = Column('updated_at', DateTime)
+    deleted_at = Column('deleted_at', DateTime)
 
 class State(Base, Pig_manageBase):
     """Represents state in pig farm."""
@@ -75,8 +90,30 @@ class State(Base, Pig_manageBase):
     __table_args__ = (
         Index('state_id_idx', 'id'),
     )
-    id = Column(Integer, nullable=False, primary_key=True)
+    id = Column(BigInteger, nullable=False, primary_key=True)
     name = Column(String(36))
+
+    deleted = Column(BigInteger, default=0)
+    created_at = Column('created_at', DateTime)
+    updated_at = Column('updated_at', DateTime)
+    deleted_at = Column('deleted_at', DateTime)
+
+class ParturitionRecord(Base, Pig_manageBase):
+    """Represents parturition_record in pig farm."""
+    __tablename__ = 'parturition_record'
+    __table_args__ = (
+        Index('parturition_record_id_idx', 'id'),
+    )
+    id = Column(BigInteger, nullable=False, primary_key=True)
+    sow_id = Column(BigInteger)
+    piglet_num = Column(Integer)
+    date = Column(DateTime, nullable=True)
+    staff_id = Column(BigInteger)
+
+    deleted = Column(BigInteger, default=0)
+    created_at = Column('created_at', DateTime)
+    updated_at = Column('updated_at', DateTime)
+    deleted_at = Column('deleted_at', DateTime)
 
 class Sow(Base, Pig_manageBase):
     """Represents sow in pig farm."""

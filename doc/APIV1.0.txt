@@ -291,3 +291,53 @@
     备注：${sow_id}变量代指sow db record的id属性，主键
     Header: Content-Type  application/json
 
+/****************************parturition_reports API *****************************/
+
+1 Listparturition_reports
+    url: http://ip:port/v1/parturition_reports/    function: GET
+    Header: Content-Type  application/json
+    response example:
+{
+    "parturition":[
+        {
+            "count":0,
+            "rate":0,
+            "piglet_num":0
+        },
+        {
+            "count":1,
+            "rate":0.1111111111111111,
+            "piglet_num":1
+        },
+        {
+            "count":1,
+            "rate":0.1111111111111111,
+            "piglet_num":2
+        },
+        {
+            "count":1,
+            "rate":0.1111111111111111,
+            "piglet_num":3
+        },
+        {
+            "count":1,
+            "rate":0.1111111111111111,
+            "piglet_num":4
+        },
+        {
+            "count":1,
+            "rate":0.1111111111111111,
+            "piglet_num":5
+        },
+        {
+            "count":3,
+            "rate":0.3333333333333333,
+            "piglet_num":7
+        },
+        {
+            "count":3,
+            "rate":0.3333333333333333,
+            "piglet_num":7
+        }
+    ]
+}

@@ -196,3 +196,16 @@ class Connection(api.Connection):
             except NoResultFound:
                 raise exception.ResourceNotFound(name='boar',
                                                  id=id)
+
+    def get_parturition_record_list(self, context, filters=None, limit=None,
+                marker=None,
+                sort_key=None, sort_dir=None):
+        filters = filters or {}
+        deleted = filters.get('deleted', None)
+        if deleted is None:
+            filters['deleted'] = 0
+        query = model_query(models.ParturitionRecord)
+
+        if filters and isinstance(filters, dict):
+            query = query.filter_by(**filters)
+        return query.all()

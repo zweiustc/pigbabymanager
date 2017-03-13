@@ -135,11 +135,6 @@ class BoarsController(rest.RestController):
         result = boar_obj.create(context) 
         return {"boar": self._format_boar(result)}
 
-    @expose.expose(None, wtypes.text)
-    def delete(self, fqdn):
-        boar_list = {'boar': 'test'}
-        return boar_list
-
     @expose.expose(wtypes.text, wtypes.text, body=wtypes.text)
     def put(self, id, patch):
         boar_dict = patch.get('UpdateBoar', None)
