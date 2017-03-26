@@ -20,8 +20,8 @@ class ThreadedSimpleServer(socketserver.ThreadingMixIn,
 
 def main():
     log.register_options(CONF)
-    CONF(default_config_files=['/etc/pig/installer-env.conf'])
-    log.setup(CONF, 'pig')
+    CONF(default_config_files=['/etc/pig_manage/pig_manage.conf'])
+    log.setup(CONF, 'pig_manage')
 
     # Build and start the WSGI app
     host = '0.0.0.0'
