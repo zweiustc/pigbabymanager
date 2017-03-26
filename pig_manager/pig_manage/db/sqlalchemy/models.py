@@ -3,7 +3,7 @@ import json
 from oslo_db.sqlalchemy import models
 import six.moves.urllib.parse as urlparse
 from sqlalchemy import (ForeignKey, Column, Index, Integer, BigInteger, Enum, String, Float,
-                        schema, Unicode, Text, SmallInteger, Boolean, DateTime)
+                        schema, Unicode, Text, SmallInteger, Boolean, DateTime, Date)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import orm
 from sqlalchemy.orm import relationship
