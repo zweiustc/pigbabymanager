@@ -1,7 +1,7 @@
+import datetime
+
 from oslo_versionedobjects import  fields
-
 from oslo_log import log
-
 from pig_manage.db import api as dbapi
 from pig_manage.objects import base
 from pig_manage import utils
@@ -19,8 +19,10 @@ class Sow(base.BaseObject):
         'id': fields.IntegerField(nullable=False), 
         'ear_tag': fields.IntegerField(nullable=True), 
         'ear_lack': fields.IntegerField(nullable=True), 
-        'birthday': fields.DateTimeField(nullable=True), 
-        'entryday': fields.DateTimeField(nullable=True), 
+        #'birthday': fields.DateTimeField(nullable=True),
+        #'entryday': fields.DateTimeField(nullable=True),
+        'birthday': fields.StringField(nullable=True),
+        'entryday': fields.StringField(nullable=True),
 
         'dormitory_id': fields.IntegerField(nullable=True), 
         'category_id': fields.IntegerField(nullable=True), 
@@ -40,7 +42,9 @@ class Sow(base.BaseObject):
         """Converts a database entity to a formal object."""
         foreign_key = ['category', 'dormitory', 'source', 'state']
         for field in sow.fields:
-            if field not in foreign_key:
+            if field in ['birthday', 'entryday']:
+                sow[field] = db_sow[field].strftime("%Y-%m-%d")
+            elif field not in foreign_key:
                 sow[field] = db_sow[field]
             elif field == 'category' and db_sow.category:
                 sow[field] = db_sow.category.name

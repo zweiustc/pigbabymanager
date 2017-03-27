@@ -209,3 +209,14 @@ class Connection(api.Connection):
         if filters and isinstance(filters, dict):
             query = query.filter_by(**filters)
         return query.all()
+
+    def count_sow_by_filter(self, context, filters=None):
+        filters = filters or {}
+        deleted = filters.get('deleted', None)
+        if deleted is None:
+            filters['deleted'] = 0
+        query = model_query(models.Sow)
+
+        if filters and isinstance(filters, dict):
+            query = query.filter_by(**filters)
+        return query.count()

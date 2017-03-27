@@ -9,7 +9,7 @@ from pig_manage.api.controllers import link
 from pig_manage.api.controllers.v1 import pig
 from pig_manage.api.controllers.v1 import sow
 from pig_manage.api.controllers.v1 import boar
-from pig_manage.api.controllers.v1 import parturition_report
+from pig_manage.api.controllers.v1 import gestational_age_report
 
 BASE_VERSION = 1
 
@@ -84,11 +84,11 @@ class V1(wtypes.Base):
                                           pecan.request.host_url,
                                           'boars', '',
                                           bookmark=True)]
-        v1.parturition_reports = [link.Link.make_link('self', pecan.request.host_url,
-                                           'parturition_reports', ''),
+        v1.gestational_age_reports = [link.Link.make_link('self', pecan.request.host_url,
+                                           'gestational_age_reports', ''),
                       link.Link.make_link('bookmark',
                                           pecan.request.host_url,
-                                          'parturition_reports', '',
+                                          'gestational_age_reports', '',
                                           bookmark=True)]
         #v1.tokens = [link.Link.make_link('self', pecan.request.host_url,
         #                                'tokens', ''),
@@ -106,7 +106,7 @@ class Controller(rest.RestController):
     pigs = pig.PigsController()
     sows = sow.SowsController()
     boars = boar.BoarsController()
-    parturition_reports = parturition_report.ParturitionReportsController()
+    gestational_age_reports = gestational_age_report.GestationalAgeReportsController()
     #defaults = default.DefaultController()
     #controllers = controller.ControllersController()
     #computes = compute.ComputesController()

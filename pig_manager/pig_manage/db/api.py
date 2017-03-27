@@ -73,3 +73,7 @@ class Connection(object):
     def get_parturition_record_list(cls, context, filters=None, limit=None,
             marker=None, sort_key=None, sort_dir=None):
         """return all parturition records in database."""
+
+    @abc.abstractmethod
+    def count_sow_by_filter(cls, context, filters=None):
+        """return number of records satified the filter in database."""

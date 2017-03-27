@@ -294,50 +294,52 @@
 /****************************parturition_reports API *****************************/
 
 1 Listparturition_reports
-    url: http://ip:port/v1/parturition_reports/    function: GET
+    url: http://ip:port/v1/gestational_age_reports/    function: GET
     Header: Content-Type  application/json
     response example:
+
+
 {
-    "parturition":[
+    "gestational_age_reports":[
         {
-            "count":0,
-            "rate":0,
-            "piglet_num":0
+            "gestational_age":0,
+            "count":106,
+            "rate":0.12725090036014405
         },
         {
-            "count":1,
-            "rate":0.1111111111111111,
-            "piglet_num":1
+            "gestational_age":1,
+            "count":166,
+            "rate":0.1992797118847539
         },
         {
-            "count":1,
-            "rate":0.1111111111111111,
-            "piglet_num":2
+            "gestational_age":2,
+            "count":420,
+            "rate":0.5042016806722689
         },
         {
-            "count":1,
-            "rate":0.1111111111111111,
-            "piglet_num":3
+            "gestational_age":3,
+            "count":37,
+            "rate":0.04441776710684274
         },
         {
-            "count":1,
-            "rate":0.1111111111111111,
-            "piglet_num":4
+            "gestational_age":4,
+            "count":49,
+            "rate":0.058823529411764705
         },
         {
-            "count":1,
-            "rate":0.1111111111111111,
-            "piglet_num":5
+            "gestational_age":5,
+            "count":31,
+            "rate":0.03721488595438175
         },
         {
-            "count":3,
-            "rate":0.3333333333333333,
-            "piglet_num":7
+            "gestational_age":6,
+            "count":15,
+            "rate":0.01800720288115246
         },
         {
-            "count":3,
-            "rate":0.3333333333333333,
-            "piglet_num":7
+            "gestational_age":7,
+            "count":9,
+            "rate":0.010804321728691477
         }
     ]
 }

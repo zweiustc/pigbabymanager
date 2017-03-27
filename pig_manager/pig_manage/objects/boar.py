@@ -19,10 +19,10 @@ class Boar(base.BaseObject):
         'id': fields.IntegerField(nullable=False), 
         'ear_tag': fields.IntegerField(nullable=True), 
         'ear_lack': fields.IntegerField(nullable=True), 
-        'birthday': fields.DateTimeField(nullable=True), 
-        'entryday': fields.DateTimeField(nullable=True), 
-        #'birthday': fields.StringField(nullable=True), 
-        #'entryday': fields.StringField(nullable=True), 
+        #'birthday': fields.DateTimeField(nullable=True), 
+        #'entryday': fields.DateTimeField(nullable=True), 
+        'birthday': fields.StringField(nullable=True), 
+        'entryday': fields.StringField(nullable=True), 
 
         'dormitory_id': fields.IntegerField(nullable=True), 
         'category_id': fields.IntegerField(nullable=True), 
@@ -42,7 +42,9 @@ class Boar(base.BaseObject):
         """Converts a database entity to a formal object."""
         foreign_key = ['category', 'dormitory', 'source']
         for field in boar.fields:
-            if field not in foreign_key:
+            if field in ['birthday', 'entryday']:
+                boar[field] = db_boar[field].strftime("%Y-%m-%d")
+            elif field not in foreign_key:
                 boar[field] = db_boar[field]
             elif field == 'category' and db_boar.category:
                 boar[field] = db_boar.category.name
