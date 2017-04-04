@@ -1,4 +1,5 @@
 import pecan
+import sys
 import webob
 from pecan import rest
 import wsme
@@ -39,13 +40,13 @@ class SowsController(rest.RestController):
         #sow['updated_at'] = db_sow.updated_at
         
         if 'category' in db_sow.keys():
-            sow['category'] = db_sow.category
+            sow['category'] = db_sow.category.encode('utf-8')
         if 'dormitory' in db_sow.keys():
-            sow['dormitory'] = db_sow.dormitory
+            sow['dormitory'] = db_sow.dormitory.encode('utf-8')
         if 'source' in db_sow.keys():
-            sow['source'] = db_sow.source
+            sow['source'] = db_sow.source.encode('utf-8')
         if 'state' in db_sow.keys():
-            sow['state'] = db_sow.state
+            sow['state'] = db_sow.state.encode('utf-8')
 
         return sow
 
@@ -54,11 +55,15 @@ class SowsController(rest.RestController):
     def get_all(self):
         sows = objects.Sow().list(
                 pecan.request.context)
+        reload(sys)
+        sys.setdefaultencoding('utf-8')
         result = [self._format_sow(sow) for sow in sows]
         return {'sows': result}
 
     @expose.expose(wtypes.text, wtypes.text)
     def get_one(self,id):
+        reload(sys)
+        sys.setdefaultencoding('utf-8')
         sow = objects.Sow().get_by_id(pecan.request.context,id)
         result = self._format_sow(sow)
         return {'sow': result}

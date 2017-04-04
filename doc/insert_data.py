@@ -1,5 +1,6 @@
 #-*- coding: utf-8 -*-
 import xlrd
+import sys
 import datetime
 import MySQLdb
 
@@ -73,8 +74,15 @@ def insert_base_record(record):
 
 def init_base_type():
     db = MySQLdb.connect(host='127.0.0.1', user='pig_manage',
-            passwd='pig_manage', db='pig')
+            passwd='pig_manage', db='pig', charset="utf8")
     cursor = db.cursor()
+    cmd = "delete from state"
+    cursor.execute(cmd)
+    cmd = "delete from category"
+    cursor.execute(cmd)
+    cmd = "delete from dormitory"
+    cursor.execute(cmd)
+    db.commit()
 
     # init category type
     cmd = 'insert into category (id, name) values (1, "LY")'
@@ -94,6 +102,8 @@ def init_base_type():
 
     # init dormitory type
     for i in range(1, 100):
+        reload(sys)
+        sys.setdefaultencoding('utf8')
         addr = "分娩舍 %s 栋" % i
         cmd = 'insert into dormitory (id, name) values (%s, "%s")' % (i, addr)
         print cmd
@@ -103,7 +113,7 @@ def init_base_type():
 if __name__ == "__main__":
 
     # only run by one time to init base type
-    # init_base_type()
+    init_base_type()
 
 
     # Insert data based on excel files
@@ -114,4 +124,4 @@ if __name__ == "__main__":
         if sheet_n == u"基础信息":
             data_base = data[sheet_n]
 
-    insert_base(data_base)
+    #insert_base(data_base)

@@ -47,13 +47,13 @@ class Sow(base.BaseObject):
             elif field not in foreign_key:
                 sow[field] = db_sow[field]
             elif field == 'category' and db_sow.category:
-                sow[field] = db_sow.category.name
+                sow[field] = db_sow.category.name.encode("utf8")
             elif field == 'dormitory' and db_sow.dormitory:
-                sow[field] = db_sow.dormitory.name
+                sow[field] = db_sow.dormitory.name.encode("utf8")
             elif field == 'source' and db_sow.source:
-                sow[field] = db_sow.source.name
+                sow[field] = db_sow.source.name.encode("utf8")
             elif field == 'state' and db_sow.state:
-                sow[field] = db_sow.state.name
+                sow[field] = db_sow.state.name.encode("utf8")
         sow.obj_reset_changes()
         return sow
 
