@@ -225,3 +225,77 @@ class Connection(api.Connection):
         if filters and isinstance(filters, dict):
             query = query.filter_by(**filters)
         return query.count()
+
+    def get_dormitory_list(self, context, filters=None, limit=None,
+                              marker=None,
+                              sort_key=None, sort_dir=None):
+        filters = filters or {}
+        deleted = filters.get('deleted', None)
+        if deleted is None:
+            filters['deleted'] = 0
+        query = model_query(models.Dormitory)
+
+        fuzzy_name = None
+        if filters and isinstance(filters, dict):
+            if 'name' in filters.keys():
+                fuzzy_name = '%' + filters['name'] + '%'
+                filters.pop('name')
+            query = query.filter_by(**filters)
+        if fuzzy_name:
+            query = query.filter(models.Dormitory.name.like(fuzzy_name))
+
+        total = query.count() 
+
+        query = db_utils.paginate_query(query, models.Dormitory,
+                    limit, sort_keys=[sort_key],
+                    sort_dir=sort_dir)
+        return PageList(query.all(), total)
+
+    def get_dormitory_by_id(self, context, id):
+        session = get_session()
+        with session.begin():
+            #query = model_query(models.Dormitory).filter_by(id=id)
+            query = model_query(models.Dormitory)
+
+            try:
+                query = query.filter_by(id=id)
+                return query.one()
+            except NoResultFound:
+                raise exception.ResourceNotFound(name='Dormitory', id=id)
+
+    def create_dormitory(self, context, values):
+        session = get_session()
+        with session.begin():
+            dormitory = models.Dormitory()
+            dormitory.update(values)
+            try:
+                dormitory.save(session=session)
+            except db_exc.DBDuplicateEntry as exc:
+                raise
+            return dormitory
+
+    def update_dormitory(self, context, id, updates):
+        session = get_session()
+        with session.begin():
+            query = model_query(models.Dormitory, session=session)
+            query = query.filter_by(id=id)
+            try:
+                ref = query.with_lockmode('update').one()
+            except NoResultFound:
+                raise exception.ResourceNotFound(name='dormitory',
+                                                 id=id)
+            ref.update(updates)
+            return ref
+
+    def delete_dormitory(self, context, id):
+        session = get_session()
+        with session.begin():
+            query = model_query(models.Dormitory, session=session,
+                    read_deleted="no")
+            query = query.filter_by(id=id)
+            try:
+                query.soft_delete()
+            except NoResultFound:
+                raise exception.ResourceNotFound(name='dormitory',
+                                                 id=id)
+
