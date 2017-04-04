@@ -47,13 +47,13 @@ class Sow(base.BaseObject):
             elif field not in foreign_key:
                 sow[field] = db_sow[field]
             elif field == 'category' and db_sow.category:
-                sow[field] = db_sow.category.name.encode("utf8")
+                sow[field] = db_sow.category.name
             elif field == 'dormitory' and db_sow.dormitory:
-                sow[field] = db_sow.dormitory.name.encode("utf8")
+                sow[field] = db_sow.dormitory.name
             elif field == 'source' and db_sow.source:
-                sow[field] = db_sow.source.name.encode("utf8")
+                sow[field] = db_sow.source.name
             elif field == 'state' and db_sow.state:
-                sow[field] = db_sow.state.name.encode("utf8")
+                sow[field] = db_sow.state.name
         sow.obj_reset_changes()
         return sow
 
@@ -80,7 +80,8 @@ class Sow(base.BaseObject):
         db_sows = cls.dbapi.get_sow_list(
             context, limit=limit, marker=marker, sort_key=sort_key,
             sort_dir=sort_dir, filters=filters)
-        return [Sow._from_db_object(cls(context), obj) for obj in db_sows]
+        total =  db_sows.total
+        return [Sow._from_db_object(cls(context), obj) for obj in db_sows], total
 
     @base.remotable_classmethod
     def get_by_id(cls, context, id):

@@ -12,6 +12,7 @@ from pig_manage.common import exception
 from pig_manage.db import api
 from pig_manage.db.sqlalchemy import models
 from pig_manage import config as conf
+from pig_manage.objects.base import PageList
 
 CONF = conf.CONF
 
@@ -59,12 +60,12 @@ class Connection(api.Connection):
     def get_sow_list(self, context, filters=None, limit=None,
                               marker=None,
                               sort_key=None, sort_dir=None):
-        #import pdb; pdb.set_trace()
         filters = filters or {}
         deleted = filters.get('deleted', None)
         if deleted is None:
             filters['deleted'] = 0
         query = model_query(models.Sow)
+
 
         columns_to_join = ['category', 'dormitory', 'source',
                         'state']
@@ -73,7 +74,12 @@ class Connection(api.Connection):
 
         if filters and isinstance(filters, dict):
             query = query.filter_by(**filters)
-        return query.all()
+
+        total = query.count() 
+
+        query = db_utils.paginate_query(query, models.Sow, limit, sort_keys=[sort_key],
+                    sort_dir=sort_dir)
+        return PageList(query.all(), total)
 
     def get_sow_by_id(self, context, id):
         session = get_session()

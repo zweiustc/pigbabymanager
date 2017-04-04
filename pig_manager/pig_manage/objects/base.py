@@ -30,3 +30,31 @@ class ObjectRegistry(ovoo_base.VersionedObjectRegistry):
 class ObjectSerializer(ovoo_base.VersionedObjectSerializer):
     # Base class to use for object hydration
     OBJ_BASE_CLASS = BaseObject
+
+
+class PageList(object):
+    """A pageList class  contains total count and selected objects..
+    """ 
+    def __init__(self, objects, total):
+        self._list = objects
+        super(PageList, self).__init__()
+        self.total = total
+
+    def __getattr__(self, item):
+        return getattr(self._list, item)
+
+    def __iter__(self):
+        """List iterator interface."""
+        return iter(self._list)
+
+    def __len__(self):
+        """List length."""
+        return len(self._list)
+
+    def __contains__(self, value):
+        """List membership test."""
+        return value in self._list
+
+    def __getitem__(self, index):
+        """List index access."""
+        return self._list.__getitem__(index)
