@@ -51,13 +51,20 @@ class SowsController(rest.RestController):
         return sow
 
     # disable the useful but fake interface
-    @expose.expose(wtypes.text, int, int, wtypes.text, wtypes.text)
+    @expose.expose(wtypes.text, int, int, wtypes.text, wtypes.text,
+            wtypes.text, wtypes.text)
     def get_all(self, PageLimit=20, CurrentPage=1,
-            SortKey='id', SortDir='asc'):
+            SortKey='id', SortDir='asc', key=None, value=None):
+
+        filters = None
+        if key is not None:
+            filters= {key: value}
+
         sows, total = objects.Sow().list(
                 pecan.request.context, limit=PageLimit,
                 marker=CurrentPage, sort_dir=SortDir,
-                sort_key=SortKey)
+                sort_key=SortKey, filters=filters)
+
         reload(sys)
         sys.setdefaultencoding('utf-8')
         result = [self._format_sow(sow) for sow in sows]

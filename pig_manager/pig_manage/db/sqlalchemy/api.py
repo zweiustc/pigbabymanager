@@ -66,7 +66,6 @@ class Connection(api.Connection):
             filters['deleted'] = 0
         query = model_query(models.Sow)
 
-
         columns_to_join = ['category', 'dormitory', 'source',
                         'state']
         for column in columns_to_join:
