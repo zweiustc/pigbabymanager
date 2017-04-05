@@ -98,3 +98,24 @@ class Connection(object):
     @abc.abstractmethod
     def delete_dormitory(cls, context, id):
         """delete dormitory info."""
+
+    @abc.abstractmethod
+    def get_state_list(cls, context, filters=None, limit=None,
+            marker=None, sort_key=None, sort_dir=None):
+        """return all state record in database."""
+
+    @abc.abstractmethod
+    def create_state(cls, context, values):
+        """Create a new state record."""
+
+    @abc.abstractmethod
+    def get_state_by_id(cls, context, id):
+        """Get state by id."""
+
+    @abc.abstractmethod
+    def update_state(cls, context, id, updates):
+        """Update state info."""
+
+    @abc.abstractmethod
+    def delete_state(cls, context, id):
+        """delete state info."""

@@ -299,3 +299,76 @@ class Connection(api.Connection):
                 raise exception.ResourceNotFound(name='dormitory',
                                                  id=id)
 
+    def get_state_list(self, context, filters=None, limit=None,
+                              marker=None,
+                              sort_key=None, sort_dir=None):
+        filters = filters or {}
+        deleted = filters.get('deleted', None)
+        if deleted is None:
+            filters['deleted'] = 0
+        query = model_query(models.State)
+
+        fuzzy_name = None
+        if filters and isinstance(filters, dict):
+            if 'name' in filters.keys():
+                fuzzy_name = '%' + filters['name'] + '%'
+                filters.pop('name')
+            query = query.filter_by(**filters)
+        if fuzzy_name:
+            query = query.filter(models.State.name.like(fuzzy_name))
+
+        total = query.count() 
+
+        query = db_utils.paginate_query(query, models.State,
+                    limit, sort_keys=[sort_key],
+                    sort_dir=sort_dir)
+        return PageList(query.all(), total)
+
+    def get_state_by_id(self, context, id):
+        session = get_session()
+        with session.begin():
+            #query = model_query(models.State).filter_by(id=id)
+            query = model_query(models.State)
+
+            try:
+                query = query.filter_by(id=id)
+                return query.one()
+            except NoResultFound:
+                raise exception.ResourceNotFound(name='State', id=id)
+
+    def create_state(self, context, values):
+        session = get_session()
+        with session.begin():
+            state = models.State()
+            state.update(values)
+            try:
+                state.save(session=session)
+            except db_exc.DBDuplicateEntry as exc:
+                raise
+            return state
+
+    def update_state(self, context, id, updates):
+        session = get_session()
+        with session.begin():
+            query = model_query(models.State, session=session)
+            query = query.filter_by(id=id)
+            try:
+                ref = query.with_lockmode('update').one()
+            except NoResultFound:
+                raise exception.ResourceNotFound(name='state',
+                                                 id=id)
+            ref.update(updates)
+            return ref
+
+    def delete_state(self, context, id):
+        session = get_session()
+        with session.begin():
+            query = model_query(models.State, session=session,
+                    read_deleted="no")
+            query = query.filter_by(id=id)
+            try:
+                query.soft_delete()
+            except NoResultFound:
+                raise exception.ResourceNotFound(name='state',
+                                                 id=id)
+
