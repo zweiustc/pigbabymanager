@@ -52,13 +52,17 @@ class SowsController(rest.RestController):
 
     # disable the useful but fake interface
     @expose.expose(wtypes.text, int, int, wtypes.text, wtypes.text,
+            wtypes.text, wtypes.text,
             wtypes.text, wtypes.text)
     def get_all(self, PageLimit=20, CurrentPage=1,
-            SortKey='id', SortDir='asc', key=None, value=None):
+            SortKey='id', SortDir='asc', key=None, value=None,
+            key1=None, value1=None):
 
-        filters = None
+        filters = {}
         if key is not None:
-            filters= {key: value}
+            filters[key] = value
+        if key1 is not None:
+            filters[key1] = value1
 
         sows, total = objects.Sow().list(
                 pecan.request.context, limit=PageLimit,

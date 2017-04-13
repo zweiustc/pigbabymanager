@@ -88,12 +88,6 @@ class BoarsController(rest.RestController):
         
         return boar
 
-    # disable the useful but fake interface
-    #@expose.expose(wtypes.text)
-    #def get_all(self):
-    #    boar_list = {'boar': 'test'}
-    #    return [boar_list]
-
     @expose.expose(wtypes.text)
     def get_all(self):
         boars = objects.Boar().list(
