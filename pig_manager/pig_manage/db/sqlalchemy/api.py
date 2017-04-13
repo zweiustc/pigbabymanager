@@ -74,9 +74,8 @@ class Connection(api.Connection):
         if filters and isinstance(filters, dict):
             query = query.filter_by(**filters)
 
-        total = query.count() 
-
-        query = db_utils.paginate_query(query, models.Sow, limit, sort_keys=[sort_key],
+        query, total = db_utils.paginate_query_offset(query, models.Sow, limit=limit,
+                                        offset=marker, sort_keys=[sort_key],
                     sort_dir=sort_dir)
         return PageList(query.all(), total)
 
@@ -244,10 +243,10 @@ class Connection(api.Connection):
         if fuzzy_name:
             query = query.filter(models.Dormitory.name.like(fuzzy_name))
 
-        total = query.count() 
+        #total = query.count()
 
-        query = db_utils.paginate_query(query, models.Dormitory,
-                    limit, sort_keys=[sort_key],
+        query, total = db_utils.paginate_query_offset(query, models.Dormitory,
+                    limit=limit, offset=marker, sort_keys=[sort_key],
                     sort_dir=sort_dir)
         return PageList(query.all(), total)
 
@@ -317,10 +316,10 @@ class Connection(api.Connection):
         if fuzzy_name:
             query = query.filter(models.State.name.like(fuzzy_name))
 
-        total = query.count() 
+        #total = query.count()
 
-        query = db_utils.paginate_query(query, models.State,
-                    limit, sort_keys=[sort_key],
+        query, total = db_utils.paginate_query_offset(query, models.State,
+                    limit=limit, offset=marker, sort_keys=[sort_key],
                     sort_dir=sort_dir)
         return PageList(query.all(), total)
 
