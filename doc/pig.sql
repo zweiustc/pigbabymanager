@@ -351,3 +351,38 @@ ALTER TABLE `weaning_record`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `breed_record`
+--
+
+CREATE TABLE `user` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(64) NOT NULL,
+  `project_id` varchar(64) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `role` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `extra` text DEFAULT NULL,
+
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `deleted` bigint(20) UNSIGNED DEFAULT 0
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `user`
+    ADD PRIMARY KEY (`id`);
+ALTER TABLE `user`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+-- --------------------------------------------------------
+
+
