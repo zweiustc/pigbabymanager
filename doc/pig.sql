@@ -357,7 +357,7 @@ ALTER TABLE `weaning_record`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `breed_record`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (

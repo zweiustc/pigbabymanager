@@ -12,6 +12,7 @@ from pig_manage.api.controllers.v1 import dormitory
 from pig_manage.api.controllers.v1 import state
 from pig_manage.api.controllers.v1 import boar
 from pig_manage.api.controllers.v1 import gestational_age_report
+from pig_manage.api.controllers.v1 import user
 
 BASE_VERSION = 1
 
@@ -104,12 +105,12 @@ class V1(wtypes.Base):
                                           pecan.request.host_url,
                                           'state', '',
                                           bookmark=True)]
-        #v1.tokens = [link.Link.make_link('self', pecan.request.host_url,
-        #                                'tokens', ''),
-        #              link.Link.make_link('bookmark',
-        #                                  pecan.request.host_url,
-        #                                  'tokens', '',
-        #                                  bookmark=True)]
+        v1.user = [link.Link.make_link('self', pecan.request.host_url,
+                                           'user', ''),
+                      link.Link.make_link('bookmark',
+                                          pecan.request.host_url,
+                                          'user', '',
+                                          bookmark=True)]
 
         return v1
 
@@ -124,12 +125,8 @@ class Controller(rest.RestController):
     dormitorys = dormitory.DormitorysController()
     states = state.StatesController()
     boars = boar.BoarsController()
+    users = user.UsersController()
     #defaults = default.DefaultController()
-    #controllers = controller.ControllersController()
-    #computes = compute.ComputesController()
-    #networks = network.NetworksController()
-    #tokens = token.TokensController()
-    #deploy = deploy.DeployController()
 
     @expose.expose(V1)
     def get(self):

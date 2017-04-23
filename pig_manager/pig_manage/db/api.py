@@ -119,3 +119,24 @@ class Connection(object):
     @abc.abstractmethod
     def delete_state(cls, context, id):
         """delete state info."""
+
+    @abc.abstractmethod
+    def get_user_list(cls, context, filters=None, limit=None,
+            marker=None, sort_key=None, sort_dir=None):
+        """return all user record in database."""
+
+    @abc.abstractmethod
+    def create_user(cls, context, values):
+        """Create a new user record."""
+
+    @abc.abstractmethod
+    def get_user_by_id(cls, context, id):
+        """Get user by id."""
+
+    @abc.abstractmethod
+    def update_user(cls, context, id, updates):
+        """Update user info."""
+
+    @abc.abstractmethod
+    def delete_user(cls, context, id):
+        """delete user info."""

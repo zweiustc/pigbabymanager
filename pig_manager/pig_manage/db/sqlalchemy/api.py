@@ -371,3 +371,76 @@ class Connection(api.Connection):
                 raise exception.ResourceNotFound(name='state',
                                                  id=id)
 
+    def get_user_list(self, context, filters=None, limit=None,
+                              marker=None,
+                              sort_key=None, sort_dir=None):
+        filters = filters or {}
+        deleted = filters.get('deleted', None)
+        if deleted is None:
+            filters['deleted'] = 0
+        query = model_query(models.User)
+
+        fuzzy_name = None
+        if filters and isinstance(filters, dict):
+            if 'name' in filters.keys():
+                fuzzy_name = '%' + filters['name'] + '%'
+                filters.pop('name')
+            query = query.filter_by(**filters)
+        if fuzzy_name:
+            query = query.filter(models.User.name.like(fuzzy_name))
+
+        #total = query.count()
+
+        query, total = db_utils.paginate_query_offset(query, models.User,
+                    limit=limit, offset=marker, sort_keys=[sort_key],
+                    sort_dir=sort_dir)
+        return PageList(query.all(), total)
+
+    def get_user_by_id(self, context, id):
+        session = get_session()
+        with session.begin():
+            #query = model_query(models.User).filter_by(id=id)
+            query = model_query(models.User)
+
+            try:
+                query = query.filter_by(id=id)
+                return query.one()
+            except NoResultFound:
+                raise exception.ResourceNotFound(name='User', id=id)
+
+    def create_user(self, context, values):
+        session = get_session()
+        with session.begin():
+            user = models.User()
+            user.update(values)
+            try:
+                user.save(session=session)
+            except db_exc.DBDuplicateEntry as exc:
+                raise
+            return user
+
+    def update_user(self, context, id, updates):
+        session = get_session()
+        with session.begin():
+            query = model_query(models.User, session=session)
+            query = query.filter_by(id=id)
+            try:
+                ref = query.with_lockmode('update').one()
+            except NoResultFound:
+                raise exception.ResourceNotFound(name='user',
+                                                 id=id)
+            ref.update(updates)
+            return ref
+
+    def delete_user(self, context, id):
+        session = get_session()
+        with session.begin():
+            query = model_query(models.User, session=session,
+                    read_deleted="no")
+            query = query.filter_by(id=id)
+            try:
+                query.soft_delete()
+            except NoResultFound:
+                raise exception.ResourceNotFound(name='user',
+                                                 id=id)
+

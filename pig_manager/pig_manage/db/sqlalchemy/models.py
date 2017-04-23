@@ -191,3 +191,26 @@ class Boar(Base, Pig_manageBase):
     #category = relationship('Category')
     #dormitory = relationship('Dormitory')
     #source = relationship('Source')
+
+
+class User(Base, Pig_manageBase):
+    """Represents User in pig farm."""
+    __tablename__ = 'user'
+    __table_args__ = (
+        Index('user_id_idx', 'id'),
+    )
+    id = Column(BigInteger, nullable=False, primary_key=True)
+    uuid = Column(String(64))
+    project_id = Column(String(64))
+    name = Column(String(255))
+    password = Column(String(255))
+    phone = Column(String(255))
+    role = Column(String(255))
+    email = Column(String(255))
+    address = Column(String(255))
+    extra = Column(Text)
+    created_at = Column('created_at', DateTime)
+    updated_at = Column('updated_at', DateTime)
+    deleted_at = Column('deleted_at', DateTime)
+    deleted = Column(BigInteger, default=0)
+
