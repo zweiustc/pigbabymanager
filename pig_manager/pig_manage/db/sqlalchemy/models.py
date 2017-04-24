@@ -188,9 +188,24 @@ class Boar(Base, Pig_manageBase):
             primaryjoin='Boar.dormitory_id == Dormitory.id')
     source = orm.relationship(Source, foreign_keys=source_id,
             primaryjoin='Boar.source_id == Source.id')
-    #category = relationship('Category')
-    #dormitory = relationship('Dormitory')
-    #source = relationship('Source')
+
+
+class Project(Base, Pig_manageBase):
+    """Represents Project in pig farm."""
+    __tablename__ = 'project'
+    __table_args__ = (
+        Index('project_id_idx', 'id'),
+    )
+    id = Column(BigInteger, nullable=False, primary_key=True)
+    uuid = Column(String(64))
+    name = Column(String(255))
+    address = Column(String(255))
+    extra = Column(Text)
+
+    created_at = Column('created_at', DateTime)
+    updated_at = Column('updated_at', DateTime)
+    deleted_at = Column('deleted_at', DateTime)
+    deleted = Column(BigInteger, default=0)
 
 
 class User(Base, Pig_manageBase):
@@ -214,3 +229,5 @@ class User(Base, Pig_manageBase):
     deleted_at = Column('deleted_at', DateTime)
     deleted = Column(BigInteger, default=0)
 
+    project = orm.relationship(Project, foreign_keys=project_id,
+            primaryjoin='User.project_id == Project.uuid')

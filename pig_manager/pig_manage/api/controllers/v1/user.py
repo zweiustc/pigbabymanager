@@ -36,6 +36,9 @@ class UsersController(rest.RestController):
         user['address'] = db_user.address
         user['extra'] = db_user.extra
 
+        if 'project' in db_user.keys():
+            user['project'] = db_user.project.encode('utf-8')
+
         return user
 
     # disable the useful but fake interface

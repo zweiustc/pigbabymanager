@@ -7,4 +7,5 @@ from pig_manage.objects import user
 Sow = sow.Sow
 Boar = boar.Boar
 Dormitory = dormitory.Dormitory
+State = state.State
 User = user.User

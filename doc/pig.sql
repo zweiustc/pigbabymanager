@@ -386,3 +386,30 @@ ALTER TABLE `user`
 -- --------------------------------------------------------
 
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project`
+--
+
+CREATE TABLE `project` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(64) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `extra` text DEFAULT NULL,
+
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `deleted` bigint(20) UNSIGNED DEFAULT 0
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `project`
+    ADD PRIMARY KEY (`id`);
+ALTER TABLE `project`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+-- --------------------------------------------------------
+
+

@@ -26,13 +26,19 @@ class User(base.BaseObject):
         'email': fields.StringField(nullable=True), 
         'address': fields.StringField(nullable=True), 
         'extra': fields.StringField(nullable=True), 
+        'project': fields.StringField(nullable=True), 
     }
 
     @staticmethod
     def _from_db_object(user, db_user):
         """Converts a database entity to a formal object."""
+        foreign_key = ['project']
         for field in user.fields:
-            user[field] = db_user[field]
+            if field not in foreign_key:
+                user[field] = db_user[field]
+            elif field == 'project' and db_user.project:
+                user['project'] = db_user.project.name
+
         user.obj_reset_changes()
         return user
 

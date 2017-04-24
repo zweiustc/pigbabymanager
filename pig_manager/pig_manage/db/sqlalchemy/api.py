@@ -380,6 +380,10 @@ class Connection(api.Connection):
             filters['deleted'] = 0
         query = model_query(models.User)
 
+        columns_to_join = ['project']
+        for column in columns_to_join:
+            query = query.options(joinedload(column))
+
         fuzzy_name = None
         if filters and isinstance(filters, dict):
             if 'name' in filters.keys():
@@ -401,6 +405,10 @@ class Connection(api.Connection):
         with session.begin():
             #query = model_query(models.User).filter_by(id=id)
             query = model_query(models.User)
+
+            columns_to_join = ['project']
+            for column in columns_to_join:
+                query = query.options(joinedload(column))
 
             try:
                 query = query.filter_by(id=id)
